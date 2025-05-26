@@ -11,25 +11,25 @@ import { SITE } from "@/config";
 export const SOCIALS = [
   {
     name: "Github",
-    href: "https://github.com/arnabd73",
+    href: "https://github.com/arnabdey73",
     linkTitle: ` ${SITE.title} on Github`,
     icon: IconGitHub,
   },
   {
     name: "X",
-    href: "https://x.com/arnab_dey_dev",
-    linkTitle: `${SITE.title} on X`,
+    href: "https://bsky.app/profile/arnabdey73.bsky.social",
+    linkTitle: `${SITE.title} on Bluesky`,
     icon: IconBrandX,
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/arnabdey/",
+    href: "https://www.linkedin.com/in/arnabdey73/",
     linkTitle: `${SITE.title} on LinkedIn`,
     icon: IconLinkedin,
   },
   {
     name: "Mail",
-    href: "mailto:contact@arnabdey.dev",
+    href: "mailto:mail@arnabdey.dev",
     linkTitle: `Send an email to ${SITE.title}`,
     icon: IconMail,
   },

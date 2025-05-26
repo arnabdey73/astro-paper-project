@@ -1,5 +1,5 @@
 ---
-title: "A Guide to Automating Cost Savings on Azure with Python, Terraform & Azure DevOps"
+title: "💰 A Guide to Automating Cost Savings on Azure with Python, Terraform & Azure DevOps"
 author: Arnab Dey
 pubDatetime: 2025-05-26T10:00:00Z
 featured: true

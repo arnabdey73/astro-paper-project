@@ -5,6 +5,7 @@ pubDate: "May 26 2025"
 cover: "@assets/images/covers/welcome-post-cover.svg"
 coverAlt: "Welcome to my blog - cover image"
 tags: ["welcome", "introduction"]
+draft: true
 ---
 
 # Hello, World!

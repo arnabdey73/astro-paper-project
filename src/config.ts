@@ -3,7 +3,7 @@ export const SITE = {
   author: "Arnab Dey",
   profile: "https://arnabdey.dev/",
   desc: "Personal blog of Arnab Dey - Thoughts, projects, and insights.",
-  title: "Arnab's Blog",
+  title: "Arnab's Tech Blog",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 6,
