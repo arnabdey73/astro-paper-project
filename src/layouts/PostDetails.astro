@@ -40,7 +40,10 @@ let ogImageUrl: string | undefined;
 
 // Determine OG image source
 if (typeof initOgImage === "string") {
-  ogImageUrl = initOgImage; // Remote OG image (absolute URL)
+  // Handle both absolute paths and URLs
+  ogImageUrl = initOgImage.startsWith("http") || initOgImage.startsWith("/") 
+    ? initOgImage 
+    : `/${initOgImage}`; // Ensure relative paths are properly prefixed
 } else if (initOgImage?.src) {
   ogImageUrl = initOgImage.src; // Local asset
 }

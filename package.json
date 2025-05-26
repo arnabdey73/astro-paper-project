@@ -4,6 +4,7 @@
   "version": "5.2.0",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/copy-images.js && sh scripts/prepare-vercel-deploy.sh",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "sync": "astro sync",

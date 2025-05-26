@@ -19,6 +19,12 @@
       "destination": "/rss.xml"
     }
   ],
+  "rewrites": [
+    {
+      "source": "/assets/images/:path*",
+      "destination": "/assets/images/:path*"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
