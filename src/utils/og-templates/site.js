@@ -77,14 +77,24 @@ export default async () => {
                           {
                             type: "p",
                             props: {
-                              style: { fontSize: 72, fontWeight: "bold" },
+                              style: { 
+                                fontSize: 72, 
+                                fontWeight: "bold",
+                                background: "linear-gradient(90deg, #2A9D8F 0%, #264653 100%)",
+                                backgroundClip: "text",
+                                color: "transparent",
+                              },
                               children: SITE.title,
                             },
                           },
                           {
                             type: "p",
                             props: {
-                              style: { fontSize: 28 },
+                              style: { 
+                                fontSize: 32,
+                                fontWeight: "500",
+                                color: "#444"
+                              },
                               children: SITE.desc,
                             },
                           },

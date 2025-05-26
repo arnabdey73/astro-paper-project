@@ -1,22 +1,29 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: "About"
+title: "About Me"
 ---
 
-AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
+Welcome to my personal blog where I share my thoughts, projects, and insights about technology, software development, and other topics that interest me.
 
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
+## Professional Background
 
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+I'm a software developer/engineer with expertise in modern web technologies, cloud platforms, and software architecture. I'm passionate about building efficient, scalable, and user-friendly applications that solve real-world problems.
 
-<div>
-  <img src="/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
-</div>
+![coding illustration](/dev.svg)
 
-## Tech Stack
+## What I Write About
 
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
+On this blog, you'll find articles about:
+
+- Software development best practices
+- Technical tutorials and guides
+- Project showcases and case studies
+- Thoughts on emerging technologies
+- Personal experiences and learnings in tech
+
+## Connect With Me
+
+Feel free to reach out if you have questions, want to collaborate, or just chat about technology and development. You can find me on [GitHub](https://github.com/arnabd73), [LinkedIn](https://www.linkedin.com/in/arnabdey/), or drop me an email at [contact@arnabdey.dev](mailto:contact@arnabdey.dev).
 
 ## Features
 
