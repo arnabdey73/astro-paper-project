@@ -1,4 +1,5 @@
 ---
+draft: true
 author: Sat Naing
 pubDatetime: 2023-01-30T15:57:52.737Z
 title: AstroPaper 2.0
@@ -9,6 +10,7 @@ tags:
   - release
 description: AstroPaper with the enhancements of Astro v2. Type-safe markdown contents, bug fixes and better dev experience etc.
 ---
+draft: true
 
 Astro 2.0 has been released with some cool features, breaking changes, DX improvements, better error overlay and so on. AstroPaper takes advantage of those cool features, especially Content Collections API.
 

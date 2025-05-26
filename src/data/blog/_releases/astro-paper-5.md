@@ -1,4 +1,5 @@
 ---
+draft: true
 pubDatetime: 2025-03-08T08:18:19.693Z
 title: AstroPaper 5.0
 slug: astro-paper-v5
@@ -8,6 +9,7 @@ tags:
   - release
 description: "AstroPaper v5: keep the clean look, updates under the hood."
 ---
+draft: true
 
 At last, the long-awaited AstroPaper v5 is finally here. AstroPaper v5 keeps the same minimal & clean look, but comes with significant updates under the hood.
 
