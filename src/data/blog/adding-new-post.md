@@ -113,7 +113,7 @@ tags:
   - some
   - example
   - tags
-ogImage: ../../assets/images/example.png # src/assets/images/example.png
+ogImage: /assets/images/forrest-gump-quote.png
 # ogImage: "https://example.org/remote-image.png" # remote URL
 description: This is the example description of the example post.
 canonicalURL: https://example.org/my-article-was-already-posted-here
@@ -161,15 +161,15 @@ You can use relative path or alias path (`@/assets/`) to serve these images.
 Example: Suppose you want to display `example.jpg` whose path is `/src/assets/images/example.jpg`.
 
 ```md
-![something](@/assets/images/example.jpg)
+![something](/assets/images/forrest-gump-quote.png)
 
 <!-- OR -->
 
-![something](../../assets/images/example.jpg)
+![something](/assets/images/forrest-gump-quote.png)
 
-<!-- Using img tag or Image component won't work ❌ -->
-<img src="@/assets/images/example.jpg" alt="something">
-<!-- ^^ This is wrong -->
+<!-- Using img tag like this works for the public directory -->
+<img src="/assets/images/forrest-gump-quote.png" alt="something">
+<!-- ^^ This is correct for public directory images -->
 ```
 
 > Technically, you can store images inside any directory under `src`. In here, `src/assets` is just a recommendation.

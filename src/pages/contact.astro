@@ -1,0 +1,138 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+---
+
+<Layout title={`Contact | ${SITE.title}`}>
+  <Header />
+
+  <main id="main-content" class="mx-auto flex max-w-3xl flex-1 items-center px-4 pb-12">
+    <section class="w-full">
+      <h1 class="text-2xl font-semibold sm:text-3xl">Contact Me</h1>
+      <p class="mt-4 mb-6">
+        Have a question, suggestion, or just want to connect? Feel free to reach out using the form below 
+        or send me an email directly at <a href="mailto:mail@arnabdey.dev" class="underline hover:text-accent">mail@arnabdey.dev</a>
+      </p>
+
+      <div class="bg-background rounded-lg border border-border p-6 shadow-sm">
+        <form 
+          action="https://formspree.io/f/xjkwqzjq" 
+          method="POST"
+          class="space-y-4"
+          onSubmit="return true;"
+        >
+          <!-- Hidden inputs for form configuration -->
+          <input type="hidden" name="_next" value="https://blog.arnabdey.dev/thanks">
+          <input type="hidden" name="_subject" value="New contact form submission from blog">
+          <!-- Honeypot field to prevent spam -->
+          <input type="text" name="_gotcha" style="display:none">
+          <div>
+            <label for="name" class="block text-base font-medium mb-1">Name</label>
+            <input 
+              type="text" 
+              name="name" 
+              id="name" 
+              required
+              class="w-full px-4 py-2 border border-border rounded-md focus:ring-2 focus:ring-accent focus:border-accent bg-background"
+            />
+          </div>
+          
+          <div>
+            <label for="email" class="block text-base font-medium mb-1">Email</label>
+            <input 
+              type="email" 
+              name="email" 
+              id="email" 
+              required
+              class="w-full px-4 py-2 border border-border rounded-md focus:ring-2 focus:ring-accent focus:border-accent bg-background"
+            />
+          </div>
+          
+          <div>
+            <label for="subject" class="block text-base font-medium mb-1">Subject</label>
+            <input 
+              type="text" 
+              name="subject" 
+              id="subject" 
+              required
+              class="w-full px-4 py-2 border border-border rounded-md focus:ring-2 focus:ring-accent focus:border-accent bg-background"
+            />
+          </div>
+          
+          <div>
+            <label for="message" class="block text-base font-medium mb-1">Message</label>
+            <textarea 
+              name="message" 
+              id="message" 
+              rows="6" 
+              required
+              class="w-full px-4 py-2 border border-border rounded-md focus:ring-2 focus:ring-accent focus:border-accent bg-background"
+            ></textarea>
+          </div>
+          
+          <div class="pt-2">
+            <button 
+              type="submit"
+              class="px-6 py-2 text-base font-medium rounded-md bg-accent hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-colors"
+            >
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="mt-8">
+        <h2 class="text-xl font-semibold mb-3">Connect with me</h2>
+        <div class="flex flex-wrap gap-2">
+          <a
+            href="https://github.com/arnabdey73"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/arnabdey73"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            LinkedIn
+          </a>
+          <a
+            href="mailto:mail@arnabdey.dev"
+            class="inline-flex items-center px-4 py-2 border border-border rounded-full hover:bg-accent hover:text-white transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Additional styling for dark mode */
+  :global(.dark) input, 
+  :global(.dark) textarea {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+</style>

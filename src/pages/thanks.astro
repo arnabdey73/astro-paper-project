@@ -1,0 +1,40 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import { SITE } from "@/config";
+---
+
+<Layout title={`Message Sent | ${SITE.title}`}>
+  <Header />
+
+  <main id="main-content" class="mx-auto flex max-w-3xl flex-1 flex-col items-center justify-center px-4 py-12">
+    <div class="text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-accent mb-6">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+      
+      <h1 class="text-3xl font-bold mb-2">Message Sent Successfully!</h1>
+      <p class="text-lg mb-8">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+      
+      <div class="flex flex-wrap gap-4 justify-center">
+        <LinkButton
+          href="/"
+          class="inline-flex items-center px-6 py-3 border border-border rounded-md hover:bg-accent hover:text-white transition-colors"
+        >
+          Return Home
+        </LinkButton>
+        <LinkButton
+          href="/contact"
+          class="inline-flex items-center px-6 py-3 bg-accent text-white rounded-md hover:opacity-80 transition-opacity"
+        >
+          Send Another Message
+        </LinkButton>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
