@@ -11,7 +11,6 @@ import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
-import { SOCIALS } from "@/constants";
 
 const posts = await getCollection("blog");
 
@@ -23,49 +22,48 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 <Layout>
   <Header />
   <main id="main-content" data-layout="index">
-    <section id="hero" class="pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
-      </h1>
+    <section id="hero">
+      <h1>Hi, I'm Arnab 👋</h1>
       <a
-        target="_blank"
         href="/rss.xml"
-        class="inline-block"
+        class="rss-link"
         aria-label="rss feed"
         title="RSS Feed"
       >
-        <IconRss
-          width={20}
-          height={20}
-          class="scale-125 stroke-accent stroke-3"
-        />
-        <span class="sr-only">RSS Feed</span>
+        <IconRss class="rss-icon" />
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        I'm a DevOps/Cloud Engineer with 14+ years in IT, specializing in Azure, Python automation, and infrastructure as code. 
+        This blog is where I share my experiences, projects, and insights about cloud infrastructure, DevOps practices, and automation techniques.
       </p>
       <p class="mt-2">
-        Read the blog posts or check
-        <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
+        Currently working on open-source DevOps tools and Azure automation projects. Check out my latest articles below!
       </p>
-      {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
-            <div class="mr-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
+      
+      <div class="social-wrapper">
+        <div class="social-links">Find me on:</div>
+        <Socials />
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:gap-4">
+        <LinkButton
+          href="https://github.com/arnabdey73"
+          class="link-button"
+          title="View my GitHub projects"
+        >
+          View my projects
+          <IconArrowRight class="h-6 w-6" />
+        </LinkButton>
+        <LinkButton
+          href="https://arnabdey.dev"
+          class="link-button"
+          title="Visit my portfolio website"
+        >
+          Visit my portfolio
+          <IconArrowRight class="h-6 w-6" />
+        </LinkButton>
+      </div>
     </section>
 
     <Hr />
@@ -73,11 +71,11 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     {
       featuredPosts.length > 0 && (
         <>
-          <section id="featured" class="pt-12 pb-6">
-            <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
+          <section id="featured">
+            <h2>Featured Posts</h2>
             <ul>
-              {featuredPosts.map(data => (
-                <Card variant="h3" {...data} />
+              {featuredPosts.map(post => (
+                <Card {...post} variant="h2" />
               ))}
             </ul>
           </section>
@@ -88,27 +86,68 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
     {
       recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+        <section id="recent-posts">
+          <h2>Recent Posts</h2>
           <ul>
             {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
+              (post, index) =>
+                index < SITE.postPerIndex && (
+                  <Card {...post} variant="h2" />
+                )
             )}
           </ul>
         </section>
       )
     }
 
-    <div class="my-8 text-center">
-      <LinkButton href="/posts/">
+    <div class="all-posts-btn-wrapper">
+      <LinkButton href="/posts" class="link-button">
         All Posts
-        <IconArrowRight class="inline-block" />
+        <IconArrowRight class="h-6 w-6" />
       </LinkButton>
     </div>
   </main>
+
   <Footer />
 </Layout>
+
+<style>
+  /* ===== Hero Section ===== */
+  #hero {
+    @apply pb-6 pt-8;
+  }
+  #hero h1 {
+    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+  }
+  #hero .rss-link {
+    @apply mb-6;
+  }
+  #hero .rss-icon {
+    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+  }
+  #hero p {
+    @apply my-2;
+  }
+  .social-wrapper {
+    @apply mt-4 mb-4 flex flex-col sm:flex-row sm:items-center;
+  }
+  .social-links {
+    @apply mr-2 mb-1 whitespace-nowrap sm:mb-0;
+  }
+
+  /* ===== Featured & Recent Posts Sections ===== */
+  #featured,
+  #recent-posts {
+    @apply pb-6 pt-12;
+  }
+  #featured h2,
+  #recent-posts h2 {
+    @apply text-2xl font-semibold tracking-wide;
+  }
+  .all-posts-btn-wrapper {
+    @apply my-8 text-center;
+  }
+</style>
 
 <script>
   document.addEventListener("astro:page-load", () => {
