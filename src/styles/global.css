@@ -1,56 +1,63 @@
-@import "tailwindcss";
-@import "./typography.css";
-
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-:root,
-html[data-theme="light"] {
-  --background: #fcfcfc;
-  --foreground: #2b2d42;
-  --accent: #2a9d8f;
-  --muted: #e9ecef;
-  --border: #dee2e6;
-}
-
-html[data-theme="dark"] {
-  --background: #1e1e2e;
-  --foreground: #edf2f4;
-  --accent: #2a9d8f;
-  --muted: #2f3e46;
-  --border: #354f52;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-border outline-accent/75;
-    scrollbar-width: auto;
-    scrollbar-color: var(--color-muted) transparent;
+  :root,
+  html[data-theme="light"] {
+    --color-bg: #fcfcfc;
+    --color-text-base: #2b2d42;
+    --color-accent: #2a9d8f;
+    --color-card: #e9ecef;
+    --color-card-muted: #dee2e6;
+    --color-border: #ddd;
+  }
+  html[data-theme="dark"] {
+    --color-bg: #1e1e2e;
+    --color-text-base: #edf2f4;
+    --color-accent: #2a9d8f;
+    --color-card: #2f3e46;
+    --color-card-muted: #354f52;
+    --color-border: #444;
   }
   html {
-    @apply overflow-y-scroll scroll-smooth;
+    @apply scroll-smooth;
   }
   body {
-    @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
-  }
-  a,
-  button {
-    @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
-  }
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
+    @apply flex min-h-screen flex-col bg-skin-fill font-mono text-skin-base;
   }
   section,
   footer {
     @apply mx-auto max-w-3xl px-4;
+  }
+  a {
+    @apply outline-2 outline-offset-1 outline-skin-fill focus-visible:no-underline focus-visible:outline-dashed;
+  }
+  svg {
+    @apply inline-block h-6 w-6 fill-skin-base group-hover:fill-skin-accent;
+  }
+  svg.icon-tabler {
+    @apply inline-block h-6 w-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent group-hover:stroke-skin-accent;
+  }
+  .prose {
+    @apply prose-headings:!mb-3 prose-headings:!text-skin-base prose-h3:italic prose-p:!text-skin-base prose-a:!text-skin-base prose-a:!decoration-dashed prose-a:underline-offset-8 hover:prose-a:text-skin-accent prose-blockquote:!border-l-skin-accent prose-blockquote:border-opacity-50 prose-blockquote:opacity-80 prose-figcaption:!text-skin-base prose-figcaption:opacity-70 prose-strong:!text-skin-base prose-code:rounded prose-code:bg-skin-card prose-code:bg-opacity-75 prose-code:p-1 prose-code:!text-skin-base prose-code:before:!content-[''] prose-code:after:!content-[''] prose-pre:!text-skin-base prose-ol:!text-skin-base prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:mx-auto prose-img:!mt-2 prose-img:border-2 prose-img:border-skin-line prose-hr:!border-skin-line;
+  }
+  .prose thead th:first-child,
+  tbody td:first-child,
+  tfoot td:first-child {
+    padding-left: 0.5714286em;
+  }
+  .prose h2#table-of-contents {
+    @apply mb-2;
+  }
+  .prose details {
+    @apply inline-block cursor-pointer select-none text-skin-base;
+  }
+  .prose summary {
+    @apply focus-outline;
+  }
+  .prose h2#table-of-contents + p {
+    @apply hidden;
   }
 }
 
