@@ -12,6 +12,7 @@ tags:
   - cost-optimization
   - automation
 description: Learn how to build a Python-based cost optimizer for Azure that automatically identifies cost-saving opportunities using Terraform and Azure DevOps pipelines.
+ogImage: /assets/images/post2.png
 ---
 
 Managing cloud costs is one of the biggest concerns for modern DevOps and Cloud Engineers. Azure provides powerful tools to analyze and manage spend—but automating cost optimization at scale? That's where this project comes in.

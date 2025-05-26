@@ -11,6 +11,8 @@ import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
+import { Image } from "astro:assets";
+import heroImage from "@/assets/images/hero_Tech_Blog.png";
 
 const posts = await getCollection("blog");
 
@@ -23,6 +25,16 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <Header />
   <main id="main-content" data-layout="index">
     <section id="hero">
+      <div class="hero-image mb-6">
+        <Image
+          src={heroImage}
+          alt="Tech Blog Hero"
+          width={720} 
+          height={360}
+          class="rounded-lg mx-auto shadow-md"
+          loading="eager"
+        />
+      </div>
       <h1>Hej! 👋</h1>
       <a
         href="/rss.xml"
@@ -82,6 +94,16 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         </>
       )
     }
+
+    <div class="read-more-divider">
+      <Image
+        src={import("@/assets/images/read_more.png")}
+        alt="Read More"
+        width={350}
+        height={120}
+        class="mx-auto my-8 opacity-80"
+      />
+    </div>
 
     {
       recentPosts.length > 0 && (

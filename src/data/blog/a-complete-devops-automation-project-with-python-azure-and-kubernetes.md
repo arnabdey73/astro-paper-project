@@ -14,6 +14,7 @@ tags:
   - bicep
   - github-actions
 description: A comprehensive DevOps portfolio project that demonstrates automation, infrastructure as code, CI/CD, and Kubernetes deployment using Python, Azure, and modern DevOps tools.
+ogImage: /assets/images/post1.png
 ---
 
 When preparing for interviews or building a serious DevOps portfolio, toy projects won't cut it. You need something that mirrors real-world complexity — and shows you know how to automate, integrate, and deploy across cloud and container platforms.
