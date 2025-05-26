@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root,
-  html[data-theme="light"] {
+  :root {
     --color-bg: #fcfcfc;
     --color-text-base: #2b2d42;
     --color-accent: #2a9d8f;
@@ -12,6 +11,7 @@
     --color-card-muted: #dee2e6;
     --color-border: #ddd;
   }
+
   html[data-theme="dark"] {
     --color-bg: #1e1e2e;
     --color-text-base: #edf2f4;
@@ -20,47 +20,205 @@
     --color-card-muted: #354f52;
     --color-border: #444;
   }
+
   html {
-    @apply scroll-smooth;
+    scroll-behavior: smooth;
   }
+
   body {
-    @apply flex min-h-screen flex-col bg-skin-fill font-mono text-skin-base;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg);
+    font-family: ui-monospace, monospace;
+    color: var(--color-text-base);
   }
+
   section,
   footer {
-    @apply mx-auto max-w-3xl px-4;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 48rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
+
   a {
-    @apply outline-2 outline-offset-1 outline-skin-fill focus-visible:no-underline focus-visible:outline-dashed;
+    outline-width: 2px;
+    outline-offset: 1px;
+    outline-color: var(--color-bg);
   }
+
+  a:focus-visible {
+    text-decoration: none;
+    outline-style: dashed;
+  }
+
   svg {
-    @apply inline-block h-6 w-6 fill-skin-base group-hover:fill-skin-accent;
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: var(--color-text-base);
   }
+
+  svg:where(.group:hover *) {
+    fill: var(--color-accent);
+  }
+
   svg.icon-tabler {
-    @apply inline-block h-6 w-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent group-hover:stroke-skin-accent;
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+    transform: scale(1.25);
+    fill: transparent;
+    stroke: currentColor;
+    stroke-width: 2;
+    opacity: 0.9;
   }
-  .prose {
-    @apply prose-headings:!mb-3 prose-headings:!text-skin-base prose-h3:italic prose-p:!text-skin-base prose-a:!text-skin-base prose-a:!decoration-dashed prose-a:underline-offset-8 hover:prose-a:text-skin-accent prose-blockquote:!border-l-skin-accent prose-blockquote:border-opacity-50 prose-blockquote:opacity-80 prose-figcaption:!text-skin-base prose-figcaption:opacity-70 prose-strong:!text-skin-base prose-code:rounded prose-code:bg-skin-card prose-code:bg-opacity-75 prose-code:p-1 prose-code:!text-skin-base prose-code:before:!content-[''] prose-code:after:!content-[''] prose-pre:!text-skin-base prose-ol:!text-skin-base prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:mx-auto prose-img:!mt-2 prose-img:border-2 prose-img:border-skin-line prose-hr:!border-skin-line;
+
+  svg.icon-tabler:where(.group:hover *) {
+    fill: transparent;
+    stroke: var(--color-accent);
   }
-  .prose thead th:first-child,
-  tbody td:first-child,
-  tfoot td:first-child {
+}
+
+@layer utilities {
+  .focus-outline {
+    outline-width: 2px;
+    outline-offset: 1px;
+    outline-color: var(--color-bg);
+  }
+
+  .focus-outline:focus-visible {
+    text-decoration: none;
+    outline-style: dashed;
+  }
+}
+
+.prose {
+  & :where(h1, h2, h3, h4, h5, h6) {
+    margin-bottom: 0.75rem;
+    color: var(--color-text-base);
+  }
+
+  & h3 {
+    font-style: italic;
+  }
+
+  & p {
+    color: var(--color-text-base);
+  }
+
+  & a {
+    color: var(--color-text-base);
+    text-decoration: dashed underline;
+    text-underline-offset: 8px;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  & blockquote {
+    border-left-color: var(--color-accent);
+    opacity: 0.8;
+  }
+
+  & figcaption {
+    color: var(--color-text-base);
+    opacity: 0.7;
+  }
+
+  & strong {
+    color: var(--color-text-base);
+  }
+
+  & code {
+    border-radius: 0.25rem;
+    background-color: var(--color-card);
+    padding: 0.25rem;
+    color: var(--color-text-base);
+
+    &::before,
+    &::after {
+      content: '';
+    }
+  }
+
+  & pre {
+    color: var(--color-text-base);
+  }
+
+  & ol {
+    color: var(--color-text-base);
+  }
+
+  & ul {
+    overflow-x: hidden;
+    color: var(--color-text-base);
+
+    & li::marker {
+      color: var(--color-accent);
+    }
+  }
+
+  & table {
+    color: var(--color-text-base);
+  }
+
+  & th,
+  & td {
+    border: 1px solid var(--color-border);
+  }
+
+  & img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    border: 2px solid var(--color-border);
+  }
+
+  & hr {
+    border-color: var(--color-border);
+  }
+
+  & thead th:first-child,
+  & tbody td:first-child,
+  & tfoot td:first-child {
     padding-left: 0.5714286em;
   }
-  .prose h2#table-of-contents {
-    @apply mb-2;
+
+  & h2#table-of-contents {
+    margin-bottom: 0.5rem;
   }
-  .prose details {
-    @apply inline-block cursor-pointer select-none text-skin-base;
+
+  & h2#table-of-contents + p {
+    display: none;
   }
-  .prose summary {
-    @apply focus-outline;
+
+  & details {
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    color: var(--color-text-base);
   }
-  .prose h2#table-of-contents + p {
-    @apply hidden;
+
+  & summary {
+    outline-width: 2px;
+    outline-offset: 1px;
+    outline-color: var(--color-bg);
+  }
+
+  & summary:focus-visible {
+    text-decoration: none;
+    outline-style: dashed;
   }
 }
 
 .active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-4;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }

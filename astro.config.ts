@@ -18,29 +18,25 @@ export default defineConfig({
     imageService: true,
   }),
   integrations: [
-    sitemap({
-      filter: page => SITE.showArchives || !page.endsWith("/archives"),
+    tailwind({
+      applyBaseStyles: false
     }),
+    sitemap(),
     react(),
-    tailwind(),
   ],
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    remarkPlugins: [
+      remarkToc,
+      [
+        remarkCollapse,
+        {
+          test: "Table of contents",
+        },
+      ],
+    ],
     shikiConfig: {
-      themes: { light: "min-light", dark: "night-owl" },
+      theme: "one-dark-pro",
       wrap: true,
-    },
+    }
   },
-  vite: {
-    optimizeDeps: {
-      exclude: ["@resvg/resvg-js"],
-    },
-  },
-  image: {
-    service: {
-      entrypoint: '@astrojs/vercel/image'
-    },
-    domains: ["blog.arnabdey.dev"],
-    remotePatterns: [{ protocol: "https" }]
-  }
 });
