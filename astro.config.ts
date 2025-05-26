@@ -3,17 +3,18 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel/static";
 import { SITE } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  output: "server",
+  output: "static",
   adapter: vercel({
     webAnalytics: {
       enabled: true,
     },
+    imageService: true,
   }),
   integrations: [
     sitemap({
@@ -35,14 +36,13 @@ export default defineConfig({
     },
   },
   experimental: {
-    responsiveImages: true,
+    assets: true
   },
   image: {
-    // Used for all Markdown images; not configurable per-image
-    // Used for all `<Image />` and `<Picture />` components unless overridden with a prop
-    experimentalLayout: true,
-    experimentalObjectFit: true,
-    experimentalObjectPosition: true,
-    experimentalBreakpoints: true,
+    service: { 
+      entrypoint: 'astro/assets/services/sharp'
+    },
+    domains: ["blog.arnabdey.dev"],
+    remotePatterns: [{ protocol: "https" }]
   },
 });
