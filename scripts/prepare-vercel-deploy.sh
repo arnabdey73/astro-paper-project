@@ -20,8 +20,3 @@ fi
 echo "✅ Assets prepared successfully for deployment!"
 echo "📋 Image paths should now use absolute paths starting with /assets/images/"
 echo "   Example: /assets/images/post1.png"
-
-# Display a success message
-echo "✅ Assets prepared successfully for deployment!"
-echo "📋 Image paths should now use absolute paths starting with /assets/images/"
-echo "   Example: /assets/images/post1.png"
