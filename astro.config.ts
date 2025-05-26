@@ -27,9 +27,15 @@ export default defineConfig({
       exclude: ["@resvg/resvg-js"],
     },
   },
+  experimental: {
+    responsiveImages: true,
+  },
   image: {
     // Used for all Markdown images; not configurable per-image
     // Used for all `<Image />` and `<Picture />` components unless overridden with a prop
-    experimentalLayout: "constrained",
+    experimentalLayout: true,
+    experimentalObjectFit: true,
+    experimentalObjectPosition: true,
+    experimentalBreakpoints: true,
   },
 });

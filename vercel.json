@@ -4,6 +4,11 @@
   "framework": "astro",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
+  "images": {
+    "sizes": [256, 640, 1080, 1920],
+    "domains": ["blog.arnabdey.dev"],
+    "minimumCacheTTL": 60
+  },
   "redirects": [
     {
       "source": "/rss",
