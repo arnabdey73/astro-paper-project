@@ -222,3 +222,11 @@
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
 }
+
+img.post-banner {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  object-fit: cover;
+}
