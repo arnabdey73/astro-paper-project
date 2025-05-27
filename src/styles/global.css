@@ -229,4 +229,5 @@ img.post-banner {
   aspect-ratio: 16 / 9;
   border-radius: 12px;
   object-fit: cover;
+  max-width: 100%;
 }
