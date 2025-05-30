@@ -15,26 +15,23 @@ import { SITE } from "@/config";
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
-// Filter out only the three specified blog posts for featured section
-const customFeaturedPosts = posts.filter(post => 
-  [
-    "iac-azure-core-governance-enterprise-scale-automation-platform", 
-    "iac-module-library-azure-accelerate-cloud-journey", 
-    "openstack-devops-suite-comprehensive-automation-platform"
-  ].includes(post.slug)
+
+// Get the target blog IDs we want to feature and filter them
+const featuredPostIds = [
+  "iac-azure-core-governance-enterprise-scale-automation-platform",
+  "iac-module-library-azure-accelerate-cloud-journey",
+  "openstack-devops-suite-comprehensive-automation-platform"
+];
+
+// Filter and manually sort the posts in the specific order
+const featuredPosts = featuredPostIds
+  .map(targetId => posts.find(post => post.id.endsWith(targetId)))
+  .filter(Boolean); // Filter out any undefined values just in case
+
+// Filter out featured posts from the recent posts list
+const recentPosts = sortedPosts.filter(post => 
+  !featuredPosts.some(fp => fp && fp.id === post.id)
 );
-
-// Manually sort the featured posts in the specified order
-const featuredPosts = [
-  // 1. IAC Azure Core Governance (May 20, 2025)
-  customFeaturedPosts.find(post => post.slug === "iac-azure-core-governance-enterprise-scale-automation-platform"),
-  // 2. IAC Module Library for Azure (May 15, 2025)
-  customFeaturedPosts.find(post => post.slug === "iac-module-library-azure-accelerate-cloud-journey"),
-  // 3. OpenStack DevOps Suite (May 1, 2025)
-  customFeaturedPosts.find(post => post.slug === "openstack-devops-suite-comprehensive-automation-platform")
-].filter(Boolean); // Filter out any undefined values just in case
-
-const recentPosts = sortedPosts.filter(post => !featuredPosts.some(fp => fp && fp.id === post.id));
 ---
 
 <Layout>
@@ -94,9 +91,7 @@ const recentPosts = sortedPosts.filter(post => !featuredPosts.some(fp => fp && f
       </div>
     </section>
 
-    <Hr />
-
-    {
+    <Hr />    {
       featuredPosts.length > 0 && (
         <>
           <section id="featured">
