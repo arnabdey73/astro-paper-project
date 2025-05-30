@@ -1,11 +1,22 @@
 ---
+author: Sat Naing
+pubDatetime: 2025-05-30T10:00:00Z
+modDatetime: 2025-05-30T10:00:00Z
 title: "OpenStack DevOps Suite: A Comprehensive Automation Platform for Modern Infrastructure"
-description: "Discover the OpenStack DevOps Suite - a powerful, open-source automation platform that streamlines infrastructure management, deployment pipelines, and monitoring for modern cloud environments."
-pubDate: "May 30 2025"
-cover: "@assets/images/covers/openstack-devops-cover.svg"
-coverAlt: "OpenStack DevOps Suite - Infrastructure Automation Platform"
-tags: ["openstack", "devops", "automation", "infrastructure", "ci-cd", "monitoring", "terraform", "ansible"]
+slug: openstack-devops-suite-comprehensive-automation-platform
+featured: true
 draft: false
+tags:
+  - openstack
+  - devops
+  - automation
+  - infrastructure
+  - ci-cd
+  - monitoring
+  - terraform
+  - ansible
+ogImage: ""
+description: "Discover the OpenStack DevOps Suite - a powerful, open-source automation platform that streamlines infrastructure management, deployment pipelines, and monitoring for modern cloud environments."
 ---
 
 # OpenStack DevOps Suite: Revolutionizing Infrastructure Automation
