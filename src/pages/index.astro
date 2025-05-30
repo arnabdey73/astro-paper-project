@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -17,16 +18,16 @@ const posts = await getCollection("blog");
 const sortedPosts = getSortedPosts(posts);
 
 // Get the target blog IDs we want to feature and filter them
-const featuredPostIds = [
+const featuredPostIdSuffixes = [
   "iac-azure-core-governance-enterprise-scale-automation-platform",
   "iac-module-library-azure-accelerate-cloud-journey",
   "openstack-devops-suite-comprehensive-automation-platform"
 ];
 
 // Filter and manually sort the posts in the specific order
-const featuredPosts = featuredPostIds
+const featuredPosts = featuredPostIdSuffixes
   .map(targetId => posts.find(post => post.id.endsWith(targetId)))
-  .filter(Boolean); // Filter out any undefined values just in case
+  .filter(Boolean) as Array<typeof posts[0]>; // Filter out any undefined values just in case
 
 // Filter out featured posts from the recent posts list
 const recentPosts = sortedPosts.filter(post => 
@@ -93,16 +94,11 @@ const recentPosts = sortedPosts.filter(post =>
 
     <Hr />    {
       featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <h2>Featured Posts</h2>
-            <ul>
-              {featuredPosts.map(post => (
-                <Card {...post} variant="h2" />
-              ))}
-            </ul>
-          </section>
-        </>
+        <section id="featured">
+          <h2>Featured Posts</h2>
+          <ul>            {featuredPosts.map(post => <Card {...post} variant="h2" />)}
+          </ul>
+        </section>
       )
     }
 
@@ -121,12 +117,10 @@ const recentPosts = sortedPosts.filter(post =>
         <section id="recent-posts">
           <h2>Recent Posts</h2>
           <ul>
-            {recentPosts.map(
-              (post, index) =>
-                index < SITE.postPerIndex && (
-                  <Card {...post} variant="h2" />
-                )
-            )}
+            {recentPosts
+              .slice(0, SITE.postPerIndex)
+              .map(post => <Card {...post} variant="h2" />)
+            }
           </ul>
         </section>
       )
