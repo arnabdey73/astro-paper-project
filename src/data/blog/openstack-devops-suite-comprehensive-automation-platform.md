@@ -1,7 +1,7 @@
 ---
-author: Sat Naing
-pubDatetime: 2025-05-30T10:00:00Z
-modDatetime: 2025-05-30T10:00:00Z
+author: Arnab Dey
+pubDatetime: 2025-05-01T10:00:00Z
+modDatetime: 2025-05-01T10:00:00Z
 title: "OpenStack DevOps Suite: A Comprehensive Automation Platform for Modern Infrastructure"
 slug: openstack-devops-suite-comprehensive-automation-platform
 featured: true
