@@ -40,14 +40,90 @@ const recentPosts = sortedPosts.filter(post =>
   <main id="main-content" data-layout="index">
     <section id="hero">
       <div class="hero-image mb-6">
-        <img
-          src="/assets/images/hero_Tech_Blog.png"
-          alt="Tech Blog Hero"
-          width="720" 
-          height="360"
-          class="post-banner mx-auto shadow-md"
-          loading="eager"
-        />
+        <div class="hero-banner mx-auto shadow-md rounded-lg overflow-hidden" style="width: 720px; height: 360px; max-width: 100%;">
+          <svg width="100%" height="100%" viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+            <defs>
+              <!-- Gradient backgrounds -->
+              <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: var(--color-bg); stop-opacity: 1" />
+                <stop offset="100%" style="stop-color: var(--color-card); stop-opacity: 1" />
+              </linearGradient>
+              
+              <!-- Pattern for texture -->
+              <pattern id="heroPattern" width="60" height="60" patternUnits="userSpaceOnUse">
+                <circle cx="30" cy="30" r="1" fill="var(--color-accent)" opacity="0.1"/>
+                <circle cx="0" cy="0" r="0.5" fill="var(--color-accent)" opacity="0.05"/>
+                <circle cx="60" cy="60" r="0.5" fill="var(--color-accent)" opacity="0.05"/>
+              </pattern>
+              
+              <!-- Subtle grid pattern -->
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--color-border)" stroke-width="0.5" opacity="0.3"/>
+              </pattern>
+            </defs>
+            
+            <!-- Background -->
+            <rect width="100%" height="100%" fill="url(#heroGradient)"/>
+            <rect width="100%" height="100%" fill="url(#heroPattern)"/>
+            <rect width="100%" height="100%" fill="url(#grid)"/>
+            
+            <!-- Geometric shapes representing tech/DevOps concepts -->
+            <!-- Server/Infrastructure icons -->
+            <g transform="translate(50, 80)" opacity="0.6">
+              <rect x="0" y="0" width="80" height="60" rx="4" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
+              <rect x="10" y="15" width="60" height="8" rx="2" fill="var(--color-accent)" opacity="0.3"/>
+              <rect x="10" y="30" width="40" height="8" rx="2" fill="var(--color-accent)" opacity="0.2"/>
+              <circle cx="60" cy="34" r="3" fill="var(--color-accent)" opacity="0.4"/>
+            </g>
+            
+            <!-- Cloud infrastructure -->
+            <g transform="translate(200, 60)" opacity="0.7">
+              <ellipse cx="30" cy="40" rx="25" ry="15" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
+              <ellipse cx="15" cy="30" rx="15" ry="10" fill="none" stroke="var(--color-accent)" stroke-width="1.5"/>
+              <ellipse cx="45" cy="30" rx="18" ry="12" fill="none" stroke="var(--color-accent)" stroke-width="1.5"/>
+              <text x="30" y="45" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="var(--color-accent)" opacity="0.8">AZURE</text>
+            </g>
+            
+            <!-- Code/Pipeline representation -->
+            <g transform="translate(400, 90)" opacity="0.6">
+              <rect x="0" y="0" width="120" height="80" rx="6" fill="none" stroke="var(--color-accent)" stroke-width="1.5"/>
+              <line x1="15" y1="20" x2="50" y2="20" stroke="var(--color-accent)" stroke-width="2" opacity="0.4"/>
+              <line x1="15" y1="35" x2="70" y2="35" stroke="var(--color-accent)" stroke-width="2" opacity="0.3"/>
+              <line x1="15" y1="50" x2="45" y2="50" stroke="var(--color-accent)" stroke-width="2" opacity="0.3"/>
+              <circle cx="90" cy="35" r="8" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
+              <path d="M 85 35 L 95 35 M 90 30 L 90 40" stroke="var(--color-accent)" stroke-width="1.5"/>
+            </g>
+            
+            <!-- Automation/DevOps flow -->
+            <g transform="translate(580, 70)" opacity="0.5">
+              <circle cx="30" cy="30" r="25" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
+              <path d="M 15 30 L 25 20 L 25 25 L 35 25 L 35 20 L 45 30 L 35 40 L 35 35 L 25 35 L 25 40 Z" fill="var(--color-accent)" opacity="0.4"/>
+            </g>
+            
+            <!-- Main title area with subtle highlight -->
+            <rect x="50" y="220" width="620" height="100" rx="8" fill="var(--color-card)" opacity="0.3" stroke="var(--color-border)" stroke-width="1"/>
+            
+            <!-- Tech Blog text -->
+            <text x="360" y="260" text-anchor="middle" font-family="ui-monospace, monospace" font-size="32" font-weight="600" fill="var(--color-text-base)">
+              Tech Blog
+            </text>
+            <text x="360" y="290" text-anchor="middle" font-family="ui-monospace, monospace" font-size="16" fill="var(--color-text-base)" opacity="0.7">
+              DevOps • Cloud • Automation
+            </text>
+            
+            <!-- Decorative connection lines -->
+            <path d="M 130 120 Q 200 150 270 120" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.3" stroke-dasharray="5,5"/>
+            <path d="M 320 120 Q 400 100 520 130" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.3" stroke-dasharray="5,5"/>
+            
+            <!-- Subtle animated elements -->
+            <circle cx="100" cy="50" r="2" fill="var(--color-accent)" opacity="0.6">
+              <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="620" cy="50" r="2" fill="var(--color-accent)" opacity="0.6">
+              <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" begin="1s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
       </div>      <h1>Hej! 👋</h1>
       <a
         href="/rss.xml"
@@ -206,6 +282,29 @@ const recentPosts = sortedPosts.filter(post =>
   #hero p {
     @apply my-2;
   }
+  
+  /* ===== Hero Banner ===== */
+  .hero-banner {
+    @apply transition-all duration-300;
+    border: 1px solid var(--color-border);
+  }
+  
+  .hero-banner:hover {
+    @apply shadow-lg;
+    transform: translateY(-2px);
+  }
+  
+  .hero-svg {
+    @apply w-full h-full;
+  }
+  
+  /* Responsive hero */
+  @media (max-width: 768px) {
+    .hero-banner {
+      height: 200px !important;
+    }
+  }
+  
   .social-wrapper {
     @apply mt-4 mb-4 flex flex-col sm:flex-row sm:items-center;
   }
@@ -220,7 +319,36 @@ const recentPosts = sortedPosts.filter(post =>
   }
   #featured h2,
   #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
+    @apply text-3xl font-bold tracking-wide mb-8 relative;
+    color: var(--color-text-base);
+    background: linear-gradient(135deg, var(--color-text-base) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  #featured h2::after,
+  #recent-posts h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent) 0%, transparent 100%);
+    border-radius: 2px;
+  }
+  
+  #featured h2:hover,
+  #recent-posts h2:hover {
+    transform: translateX(4px);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  #featured h2:hover::after,
+  #recent-posts h2:hover::after {
+    width: 80px;
+    transition: width 0.2s ease-in-out;
   }
   .all-posts-btn-wrapper {
     @apply my-8 text-center;
