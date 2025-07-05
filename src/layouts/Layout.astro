@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import { SITE } from "@/config";
+import BackToTop from "@/components/BackToTop.astro";
 import "@/styles/global.css";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -131,6 +132,7 @@ const structuredData = {
   </head>
   <body>
     <slot />
+    <BackToTop />
   </body>
 </html>
 

@@ -1,0 +1,66 @@
+---
+// Simple BackToTop component without SVG dependencies
+---
+
+<button
+  id="back-to-top"
+  class="fixed bottom-6 right-6 z-50 hidden rounded-full p-3 shadow-lg transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2"
+  style="background-color: var(--color-accent); color: var(--color-bg); outline-color: var(--color-accent); border: 1px solid var(--color-border);"
+  title="Back to Top"
+  aria-label="Back to Top"
+>
+  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7 7 7"></path>
+  </svg>
+</button>
+
+<style>
+  #back-to-top.show {
+    @apply block;
+  }
+  
+  #back-to-top:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+</style>
+
+<script>
+  function initBackToTop() {
+    const backToTopButton = document.querySelector("#back-to-top") as HTMLButtonElement;
+    
+    if (!backToTopButton) return;
+
+    // Show/hide button based on scroll position
+    function toggleBackToTopButton() {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add("show");
+        backToTopButton.classList.remove("hidden");
+      } else {
+        backToTopButton.classList.remove("show");
+        backToTopButton.classList.add("hidden");
+      }
+    }
+
+    // Scroll to top when button is clicked
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    // Add event listeners
+    window.addEventListener("scroll", toggleBackToTopButton);
+    backToTopButton.addEventListener("click", scrollToTop);
+
+    // Initial check
+    toggleBackToTopButton();
+  }
+
+  // Initialize on page load
+  initBackToTop();
+
+  // Re-initialize after page transitions
+  document.addEventListener("astro:after-swap", initBackToTop);
+</script>
