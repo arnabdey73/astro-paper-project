@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import vercel from "@astrojs/vercel";
-import react from "@astrojs/react";
 import { SITE } from "./src/config";
 
 // https://astro.build/config
@@ -27,7 +26,6 @@ export default defineConfig({
       applyBaseStyles: false
     }),
     sitemap(),
-    react(),
   ],
   markdown: {
     remarkPlugins: [
