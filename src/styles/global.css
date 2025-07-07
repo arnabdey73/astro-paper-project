@@ -36,8 +36,6 @@
 
   section,
   footer {
-    margin-left: auto;
-    margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -89,127 +87,6 @@
   }
 
   .focus-outline:focus-visible {
-    text-decoration: none;
-    outline-style: dashed;
-  }
-}
-
-.prose {
-  & :where(h1, h2, h3, h4, h5, h6) {
-    margin-bottom: 0.75rem;
-    color: var(--color-text-base);
-  }
-
-  & h3 {
-    font-style: italic;
-  }
-
-  & p {
-    color: var(--color-text-base);
-  }
-
-  & a {
-    color: var(--color-text-base);
-    text-decoration: dashed underline;
-    text-underline-offset: 8px;
-
-    &:hover {
-      color: var(--color-accent);
-    }
-  }
-
-  & blockquote {
-    border-left-color: var(--color-accent);
-    opacity: 0.8;
-  }
-
-  & figcaption {
-    color: var(--color-text-base);
-    opacity: 0.7;
-  }
-
-  & strong {
-    color: var(--color-text-base);
-  }
-
-  & code {
-    border-radius: 0.25rem;
-    background-color: var(--color-card);
-    padding: 0.25rem;
-    color: var(--color-text-base);
-
-    &::before,
-    &::after {
-      content: '';
-    }
-  }
-
-  & pre {
-    color: var(--color-text-base);
-  }
-
-  & ol {
-    color: var(--color-text-base);
-  }
-
-  & ul {
-    overflow-x: hidden;
-    color: var(--color-text-base);
-
-    & li::marker {
-      color: var(--color-accent);
-    }
-  }
-
-  & table {
-    color: var(--color-text-base);
-  }
-
-  & th,
-  & td {
-    border: 1px solid var(--color-border);
-  }
-
-  & img {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.5rem;
-    border: 2px solid var(--color-border);
-  }
-
-  & hr {
-    border-color: var(--color-border);
-  }
-
-  & thead th:first-child,
-  & tbody td:first-child,
-  & tfoot td:first-child {
-    padding-left: 0.5714286em;
-  }
-
-  & h2#table-of-contents {
-    margin-bottom: 0.5rem;
-  }
-
-  & h2#table-of-contents + p {
-    display: none;
-  }
-
-  & details {
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    user-select: none;
-    color: var(--color-text-base);
-  }
-
-  & summary {
-    outline-width: 2px;
-    outline-offset: 1px;
-    outline-color: var(--color-bg);
-  }
-
-  & summary:focus-visible {
     text-decoration: none;
     outline-style: dashed;
   }
