@@ -41,66 +41,72 @@ const recentPosts = sortedPosts.filter(post =>
           <svg width="100%" height="100%" viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" class="hero-svg" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="var(--color-bg)" stop-opacity="1" />
-                <stop offset="100%" stop-color="var(--color-accent)" stop-opacity="0.1" />
+                <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.9" />
+                <stop offset="50%" stop-color="#3730a3" stop-opacity="0.7" />
+                <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.5" />
               </linearGradient>
-              <pattern id="techGrid" width="60" height="60" patternUnits="userSpaceOnUse">
-                <circle cx="30" cy="30" r="1" fill="var(--color-accent)" opacity="0.2"/>
-                <path d="M15 15 L45 15 M30 0 L30 60" stroke="var(--color-accent)" stroke-width="0.5" opacity="0.1"/>
+              <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#6366f1" />
+                <stop offset="50%" stop-color="#8b5cf6" />
+                <stop offset="100%" stop-color="#a855f7" />
+              </linearGradient>
+              <pattern id="techGrid" width="80" height="80" patternUnits="userSpaceOnUse">
+                <circle cx="40" cy="40" r="1.5" fill="#6366f1" opacity="0.3"/>
+                <path d="M20 20 L60 20 M40 0 L40 80" stroke="#8b5cf6" stroke-width="0.5" opacity="0.2"/>
               </pattern>
             </defs>
             
             <rect width="100%" height="100%" fill="url(#bgGradient)"/>
             <rect width="100%" height="100%" fill="url(#techGrid)"/>
             
-            <!-- DevOps Flow -->
-            <g transform="translate(150, 100)">
-              <rect x="0" y="0" width="70" height="45" rx="6" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
-              <text x="35" y="28" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="var(--color-accent)">CODE</text>
+            <!-- DevOps Flow - Better proportioned -->
+            <g transform="translate(120, 80)">
+              <rect x="0" y="0" width="90" height="50" rx="8" fill="none" stroke="url(#accentGradient)" stroke-width="2.5"/>
+              <text x="45" y="32" text-anchor="middle" font-family="ui-monospace, monospace" font-size="14" font-weight="600" fill="#e0e7ff">CODE</text>
               
-              <path d="M75 22 L105 22" stroke="var(--color-accent)" stroke-width="2"/>
-              <polygon points="105,18 115,22 105,26" fill="var(--color-accent)"/>
+              <path d="M95 25 L125 25" stroke="url(#accentGradient)" stroke-width="3"/>
+              <polygon points="125,20 140,25 125,30" fill="#6366f1"/>
               
-              <rect x="120" y="0" width="70" height="45" rx="6" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
-              <text x="155" y="28" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="var(--color-accent)">BUILD</text>
+              <rect x="145" y="0" width="90" height="50" rx="8" fill="none" stroke="url(#accentGradient)" stroke-width="2.5"/>
+              <text x="190" y="32" text-anchor="middle" font-family="ui-monospace, monospace" font-size="14" font-weight="600" fill="#e0e7ff">BUILD</text>
               
-              <path d="M195 22 L225 22" stroke="var(--color-accent)" stroke-width="2"/>
-              <polygon points="225,18 235,22 225,26" fill="var(--color-accent)"/>
+              <path d="M240 25 L270 25" stroke="url(#accentGradient)" stroke-width="3"/>
+              <polygon points="270,20 285,25 270,30" fill="#6366f1"/>
               
-              <rect x="240" y="0" width="70" height="45" rx="6" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
-              <text x="275" y="28" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="var(--color-accent)">TEST</text>
+              <rect x="290" y="0" width="90" height="50" rx="8" fill="none" stroke="url(#accentGradient)" stroke-width="2.5"/>
+              <text x="335" y="32" text-anchor="middle" font-family="ui-monospace, monospace" font-size="14" font-weight="600" fill="#e0e7ff">TEST</text>
               
-              <path d="M315 22 L345 22" stroke="var(--color-accent)" stroke-width="2"/>
-              <polygon points="345,18 355,22 345,26" fill="var(--color-accent)"/>
+              <path d="M385 25 L415 25" stroke="url(#accentGradient)" stroke-width="3"/>
+              <polygon points="415,20 430,25 415,30" fill="#6366f1"/>
               
-              <ellipse cx="400" cy="22" rx="45" ry="22" fill="none" stroke="var(--color-accent)" stroke-width="2"/>
-              <text x="400" y="28" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="var(--color-accent)" font-weight="bold">AZURE</text>
+              <ellipse cx="485" cy="25" rx="55" ry="30" fill="none" stroke="url(#accentGradient)" stroke-width="3"/>
+              <text x="485" y="32" text-anchor="middle" font-family="ui-monospace, monospace" font-size="16" fill="#e0e7ff" font-weight="bold">AZURE</text>
             </g>
             
-            <!-- Technologies Section -->
-            <g transform="translate(200, 200)">
-              <text x="400" y="25" text-anchor="middle" font-family="ui-monospace, monospace" font-size="14" fill="var(--color-accent)" font-weight="600">DevOps Technology Stack</text>
+            <!-- Technologies Section - Better spacing -->
+            <g transform="translate(100, 180)">
+              <text x="500" y="30" text-anchor="middle" font-family="ui-monospace, monospace" font-size="18" fill="#c7d2fe" font-weight="700">DevOps Technology Stack</text>
               
-              <rect x="150" y="40" width="70" height="30" rx="4" fill="var(--color-card)" opacity="0.3" stroke="var(--color-accent)"/>
-              <text x="185" y="60" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="var(--color-accent)">Terraform</text>
+              <rect x="120" y="50" width="100" height="40" rx="6" fill="rgba(99, 102, 241, 0.1)" stroke="#6366f1" stroke-width="2"/>
+              <text x="170" y="75" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="600" fill="#e0e7ff">Terraform</text>
               
-              <rect x="240" y="40" width="70" height="30" rx="4" fill="var(--color-card)" opacity="0.3" stroke="var(--color-accent)"/>
-              <text x="275" y="60" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="var(--color-accent)">Python</text>
+              <rect x="240" y="50" width="100" height="40" rx="6" fill="rgba(139, 92, 246, 0.1)" stroke="#8b5cf6" stroke-width="2"/>
+              <text x="290" y="75" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="600" fill="#e0e7ff">Python</text>
               
-              <rect x="330" y="40" width="70" height="30" rx="4" fill="var(--color-card)" opacity="0.3" stroke="var(--color-accent)"/>
-              <text x="365" y="60" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="var(--color-accent)">Docker</text>
+              <rect x="360" y="50" width="100" height="40" rx="6" fill="rgba(168, 85, 247, 0.1)" stroke="#a855f7" stroke-width="2"/>
+              <text x="410" y="75" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="600" fill="#e0e7ff">Docker</text>
               
-              <rect x="420" y="40" width="70" height="30" rx="4" fill="var(--color-card)" opacity="0.3" stroke="var(--color-accent)"/>
-              <text x="455" y="60" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="var(--color-accent)">Kubernetes</text>
+              <rect x="480" y="50" width="100" height="40" rx="6" fill="rgba(99, 102, 241, 0.1)" stroke="#6366f1" stroke-width="2"/>
+              <text x="530" y="75" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="600" fill="#e0e7ff">Kubernetes</text>
               
-              <rect x="510" y="40" width="70" height="30" rx="4" fill="var(--color-card)" opacity="0.3" stroke="var(--color-accent)"/>
-              <text x="545" y="60" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="var(--color-accent)">Ansible</text>
+              <rect x="600" y="50" width="100" height="40" rx="6" fill="rgba(139, 92, 246, 0.1)" stroke="#8b5cf6" stroke-width="2"/>
+              <text x="650" y="75" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="600" fill="#e0e7ff">Ansible</text>
             </g>
             
-            <!-- Main Title -->
-            <rect x="250" y="280" width="700" height="60" rx="8" fill="var(--color-card)" opacity="0.4" stroke="var(--color-border)"/>
-            <text x="600" y="305" text-anchor="middle" font-family="ui-monospace, monospace" font-size="22" font-weight="700" fill="var(--color-text-base)">DevOps Engineering Blog</text>
-            <text x="600" y="325" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="var(--color-accent)">Azure • Python • Infrastructure as Code • Automation</text>
+            <!-- Main Title - Better proportioned -->
+            <rect x="200" y="280" width="800" height="70" rx="12" fill="rgba(30, 27, 75, 0.8)" stroke="url(#accentGradient)" stroke-width="2"/>
+            <text x="600" y="310" text-anchor="middle" font-family="ui-monospace, monospace" font-size="28" font-weight="800" fill="#f1f5f9">DevOps Engineering Blog</text>
+            <text x="600" y="335" text-anchor="middle" font-family="ui-monospace, monospace" font-size="14" font-weight="500" fill="#c7d2fe">Azure • Python • Infrastructure as Code • Automation</text>
           </svg>
         </div>
       </div>
