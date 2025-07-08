@@ -128,14 +128,7 @@ const structuredData = {
       rel="alternate"
       type="application/rss+xml"
       title={SITE.title}
-      href={(() => {
-        try {
-          return new URL("rss.xml", Astro.site).href;
-        } catch (e) {
-          console.warn("Error creating RSS URL. Falling back to /rss.xml", e);
-          return "/rss.xml";
-        }
-      })()}
+      href="/rss.xml"
     />
 
     <meta name="theme-color" content="" />

@@ -1,6 +1,7 @@
 ---
 import Hr from "./Hr.astro";
 import Socials from "./Socials.astro";
+import { SITE } from "../config";
 
 const currentYear = new Date().getFullYear();
 
@@ -10,8 +11,24 @@ export interface Props {
 
 const { noMarginTop = false } = Astro.props;
 
-// Hard-coded RSS URL - no URL construction needed
-const safeRssUrl = "/rss.xml";
+// Make a safe RSS URL with defensive coding
+let safeRssUrl = "/rss.xml"; // Default fallback
+
+if (typeof window !== 'undefined') {
+  // Client-side: Just use relative path
+  safeRssUrl = "/rss.xml";
+} else {
+  // Server-side: Try to use absolute URL if site is available
+  try {
+    if (Astro.site) {
+      const siteUrl = new URL(Astro.site);
+      safeRssUrl = new URL("rss.xml", siteUrl).pathname;
+    }
+  } catch (error) {
+    console.error("Error creating RSS URL. Falling back to /rss.xml", error);
+    safeRssUrl = "/rss.xml";
+  }
+}
 ---
 
 <footer class:list={["w-full", { "mt-auto": !noMarginTop }]}>

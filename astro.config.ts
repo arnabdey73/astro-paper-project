@@ -4,11 +4,13 @@ import tailwind from "@astrojs/tailwind";
 import { SITE } from "./src/config";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
+import vercel from "@astrojs/vercel/static";
 
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
   output: "static",
+  adapter: vercel({ webAnalytics: { enabled: true } }),
   
   // Image config
   image: {
