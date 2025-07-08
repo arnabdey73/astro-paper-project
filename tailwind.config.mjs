@@ -12,7 +12,7 @@ export default {
         },
         foreground: "var(--color-text-base)",
         accent: "var(--color-accent)",
-        muted: "var(--color-text-base)",
+        muted: "var(--color-text-muted)",
       },
       backgroundColor: {
         skin: {

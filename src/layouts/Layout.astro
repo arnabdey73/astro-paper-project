@@ -136,11 +136,40 @@ const structuredData = {
   </body>
 </html>
 
-<style>
+<style is:global>
   html,
   body {
     margin: 0;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Force all content to be full-width */
+  .prose, 
+  .prose-full,
+  #article,
+  #about,
+  main,
+  section,
+  article {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Ensure posts and about page text is properly aligned */
+  #article p,
+  #about p {
+    width: 100% !important;
+    text-align: left !important;
+    max-width: none !important;
+  }
+  
+  /* Override any default Tailwind width constraints */
+  @media (min-width: 640px) {
+    .prose, .prose-full {
+      max-width: none !important;
+    }
   }
 </style>

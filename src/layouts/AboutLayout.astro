@@ -4,6 +4,7 @@ import Footer from "@/components/Footer.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import Layout from "./Layout.astro";
 import { SITE } from "@/config";
+import "../styles/about.css";
 
 export interface Props {
   frontmatter: {
@@ -19,7 +20,7 @@ const { frontmatter } = Astro.props;
   <Header />
   <Breadcrumb />
   <main id="main-content">
-    <section id="about" class="prose mb-28 prose-img:border-0">
+    <section id="about" class="prose-full mb-28 w-full prose-img:border-0" style="max-width: none; width: 100vw; margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem;">
       <h1 class="text-2xl font-bold tracking-wider sm:text-3xl">{frontmatter.title}</h1>
       <slot />
     </section>

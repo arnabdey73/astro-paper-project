@@ -5,20 +5,24 @@
 @layer base {
   :root {
     --color-bg: #ffffff;
-    --color-text-base: #1a1a1a;
+    --color-text-base: #000000;
+    --color-text-muted: #4b5563;
     --color-accent: #2a9d8f;
     --color-card: #f8f9fa;
     --color-card-muted: #e9ecef;
     --color-border: #dee2e6;
+    --color-text-inverted: #ffffff;
   }
 
   html[data-theme="dark"] {
     --color-bg: #0d1117;
-    --color-text-base: #f0f6fc;
+    --color-text-base: #ffffff;
+    --color-text-muted: #d1d5db;
     --color-accent: #2a9d8f;
     --color-card: #161b22;
     --color-card-muted: #21262d;
     --color-border: #30363d;
+    --color-text-inverted: #000000;
   }
 
   html {
@@ -37,8 +41,31 @@
 
   section,
   footer {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    /* Remove horizontal padding to allow true full-width content */
+    width: 100%;
+  }
+
+  /* Add consistent page padding */
+  #main-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 100% !important;
+    max-width: none !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  @media (max-width: 640px) {
+    #main-content {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  
+  /* Force container to be full width */
+  .astro-container {
+    max-width: 100% !important;
+    width: 100% !important;
   }
 
   a {

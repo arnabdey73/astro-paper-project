@@ -86,7 +86,7 @@ const nextPost =
   <main
     id="main-content"
     class:list={[
-      "w-full px-4 pb-12",
+      "w-full pb-12",
       { "mt-8": !SITE.showBackButton },
     ]}
     data-pagefind-body
@@ -101,7 +101,7 @@ const nextPost =
       <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" class="my-2" />
       <EditPost class="max-sm:hidden" {hideEditPost} {post} />
     </div>
-    <article id="article" class="prose mt-8 w-full">
+    <article id="article" class="prose-full mt-8 w-full" style="max-width: none; width: 100vw; margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem;">
       <Content />
     </article>
 
