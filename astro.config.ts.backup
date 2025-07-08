@@ -1,0 +1,16 @@
+// Ultra-minimal configuration for debugging purposes
+import { defineConfig } from "astro/config";
+import { SITE } from "./src/config";
+
+// No integrations or external modules for maximum compatibility
+export default defineConfig({
+  site: SITE.website,
+  output: "static",
+  integrations: [],
+  markdown: {
+    shikiConfig: {
+      theme: "github-dark",
+      wrap: true,
+    }
+  },
+});

@@ -1,4 +1,62 @@
 /* About page specific styles */
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  background-color: var(--color-card);
+  background-image: linear-gradient(135deg, var(--color-card) 0%, var(--color-card-muted) 100%);
+  position: relative;
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, var(--color-accent) 0, transparent 50px),
+    radial-gradient(circle at 80% 30%, var(--color-accent) 0, transparent 70px);
+  opacity: 0.1;
+}
+
+.about-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 1rem;
+  width: fit-content;
+}
+
+.about-content {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 #about {
   width: 100% !important;
   max-width: none !important;
@@ -11,13 +69,23 @@
   max-width: none !important;
   margin-bottom: 1.5em;
   text-align: left !important;
+  font-size: 1.1rem;
+  line-height: 1.7;
 }
 
 #about img {
-  max-width: 100%;
+  max-width: 350px;
   height: auto;
-  margin: 2rem 0;
+  margin: 2rem auto;
   border-radius: 0.5rem;
+  display: block;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#about img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 #about ul, #about ol {
@@ -26,8 +94,59 @@
   width: 100%;
 }
 
-#about h2, #about h3, #about h4 {
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+#about li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+#about li::before {
+  content: "→";
+  color: var(--color-accent);
+  position: absolute;
+  left: -1.5rem;
   font-weight: bold;
+}
+
+#about h2, #about h3, #about h4 {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: var(--color-accent);
+  position: relative;
+}
+
+#about h2::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 3rem;
+  height: 0.15rem;
+  background-color: var(--color-accent);
+}
+
+#about a {
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--color-accent);
+  transition: border-bottom 0.2s ease;
+}
+
+#about a:hover {
+  border-bottom: 1px solid var(--color-accent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 2rem;
+  }
+  
+  #about p {
+    font-size: 1rem;
+  }
+  
+  .about-hero {
+    height: 150px;
+  }
 }

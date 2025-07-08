@@ -3,20 +3,15 @@
   "type": "module",
   "version": "5.2.0",
   "scripts": {
-    "dev": "NODE_OPTIONS='--max-old-space-size=4096' astro dev",
-    "dev:safe": "NODE_OPTIONS='--max-old-space-size=4096 --no-warnings' ASTRO_TELEMETRY_DISABLED=1 astro dev --verbose",
+    "dev": "astro dev",
     "prebuild": "node scripts/copy-images.js && sh scripts/prepare-vercel-deploy.sh",
-    "build": "NODE_OPTIONS='--max-old-space-size=4096 --no-warnings' astro check && astro build --verbose",
-    "build:fast": "NODE_OPTIONS='--max-old-space-size=4096' ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
-    "lint": "eslint .",
-    "clean": "rm -rf dist/ .astro/ node_modules/.vite node_modules/.astro",
-    "diagnose": "sh diagnose-timeout.sh",
-    "restore": "sh restore-config.sh"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
@@ -24,6 +19,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/vercel": "^8.1.4",
     "@resvg/resvg-js": "^2.6.2",
+    "@tailwindcss/vite": "^4.0.14",
     "@vercel/analytics": "^1.5.0",
     "astro": "^5.5.2",
     "dayjs": "^1.11.13",
@@ -52,7 +48,9 @@
     "postcss-nested": "^7.0.2",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2"
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "3.4.1",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.1"
   }
 }

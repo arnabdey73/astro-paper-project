@@ -1,0 +1,104 @@
+// Ultra-optimized configuration to avoid SSR timeouts
+import { defineConfig } from "astro/config";
+import { SITE } from "./src/config";
+
+// Lazy load all dependencies to improve module evaluation time
+const getIntegrations = async () => {
+  // Import tailwind only when needed
+  const tailwind = (await import("@astrojs/tailwind")).default;
+  
+  const integrations = [
+    tailwind({
+      applyBaseStyles: false
+    })
+  ];
+  
+  // Only include sitemap in production builds
+  if (process.env.NODE_ENV === "production") {
+    const sitemap = (await import("@astrojs/sitemap")).default;
+    integrations.push(sitemap());
+  }
+  
+  return integrations;
+};
+
+// Lazy-load the Vercel adapter only in production
+const getVercelAdapter = async () => {
+  if (process.env.NODE_ENV === "production") {
+    const vercel = (await import("@astrojs/vercel")).default;
+    return vercel({
+      webAnalytics: {
+        enabled: true,
+      },
+      imageService: true,
+    });
+  }
+  return undefined;
+};
+
+// Lazy-load markdown plugins only when needed
+const getRemarkPlugins = async () => {
+  const remarkToc = (await import("remark-toc")).default;
+  const remarkCollapse = (await import("remark-collapse")).default;
+  
+  return [
+    remarkToc,
+    [
+      remarkCollapse,
+      {
+        test: "Table of contents",
+      },
+    ],
+  ];
+};
+
+// https://astro.build/config
+export default defineConfig({
+  site: SITE.website,
+  output: "static",
+  
+  // Only include the adapter in production builds
+  adapter: await getVercelAdapter(),
+  
+  // Simple image config to avoid timeout during evaluation
+  image: {
+    domains: ["blog.arnabdey.dev"],
+    remotePatterns: [{ protocol: "https" }]
+  },
+  
+  // Dynamically loaded integrations
+  integrations: await getIntegrations(),
+  
+  // Markdown config with lazy-loaded plugins
+  markdown: {
+    remarkPlugins: await getRemarkPlugins(),
+    shikiConfig: {
+      theme: "one-dark-pro",
+      wrap: true,
+    }
+  },
+  
+  // Add build optimization settings
+  vite: {
+    build: {
+      // Improve CSS splitting
+      cssCodeSplit: true,
+      // Reduce chunk size
+      chunkSizeWarningLimit: 1000,
+      // Better tree-shaking
+      minify: 'terser',
+      // Avoid browser cache issues
+      assetsInlineLimit: 4096
+    },
+    // Optimize SSR performance
+    ssr: {
+      // Avoid unnecessary bundling
+      noExternal: ['@resvg/resvg-js', 'satori']
+    },
+    // Prevent timeout issues
+    optimizeDeps: {
+      // Forces prebundling of problematic deps
+      include: ['@resvg/resvg-js', 'satori', 'sharp']
+    }
+  },
+});

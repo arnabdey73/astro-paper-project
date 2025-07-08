@@ -5,6 +5,8 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import Layout from "./Layout.astro";
 import { SITE } from "@/config";
 import "../styles/about.css";
+import Timeline from "@/components/Timeline.astro";
+import SkillTags from "@/components/SkillTags.astro";
 
 export interface Props {
   frontmatter: {
@@ -14,16 +16,133 @@ export interface Props {
 }
 
 const { frontmatter } = Astro.props;
+
+// Sample professional journey timeline data
+const journeyItems = [
+  { 
+    year: "2024", 
+    title: "Senior Cloud Architect", 
+    description: "Leading cloud infrastructure design and implementation for enterprise solutions."
+  },
+  { 
+    year: "2022", 
+    title: "DevOps Engineer", 
+    description: "Implementing CI/CD pipelines and container orchestration systems."
+  },
+  { 
+    year: "2020", 
+    title: "Full Stack Developer", 
+    description: "Building modern web applications with JavaScript frameworks."
+  },
+  { 
+    year: "2018", 
+    title: "Started Coding Journey", 
+    description: "First steps into software development and web technologies."
+  }
+];
+
+// Technical skills
+const skills = ["DevOps", "Cloud Infrastructure", "AWS", "Azure", "Docker", "Kubernetes", "CI/CD", "JavaScript", "TypeScript", "React", "Node.js"];
 ---
 
 <Layout title={`${frontmatter.title} | ${SITE.title}`}>
   <Header />
   <Breadcrumb />
   <main id="main-content">
-    <section id="about" class="prose-full mb-28 w-full prose-img:border-0" style="max-width: none; width: 100vw; margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem;">
-      <h1 class="text-2xl font-bold tracking-wider sm:text-3xl">{frontmatter.title}</h1>
-      <slot />
+    <div class="about-hero">
+      <div class="about-gradient"></div>
+    </div>
+    <section id="about" class="prose-full mb-28 w-full prose-img:border-0">
+      <div class="about-container">
+        <h1 class="about-title">{frontmatter.title}</h1>
+        <div class="about-content">
+          <slot />
+          
+          <!-- Skills section - will be rendered after the markdown content -->
+          <div class="skills-section">
+            <h3>Technical Skills</h3>
+            <SkillTags skills={skills} />
+          </div>
+          
+          <!-- Journey section -->
+          <div class="journey-section">
+            <h3>Professional Journey</h3>
+            <Timeline items={journeyItems} />
+          </div>
+          
+          <!-- Contact Card -->
+          <div class="contact-card">
+            <h3>Get in Touch</h3>
+            <p>I'm always open to interesting conversations and opportunities.</p>
+            <div class="contact-links">
+              <a href="https://github.com/arnabd73" class="contact-link">
+                <span class="icon">🔗</span> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/arnabdey/" class="contact-link">
+                <span class="icon">🔗</span> LinkedIn
+              </a>
+              <a href="mailto:mail@arnabdey.dev" class="contact-link">
+                <span class="icon">✉️</span> Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .skills-section, .journey-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+  
+  .skills-section h3, .journey-section h3 {
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-card {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: var(--color-card);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-card h3 {
+    color: var(--color-accent);
+    margin-top: 0;
+  }
+  
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-card-muted);
+    color: var(--color-text-base);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .contact-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+  }
+</style>

@@ -1,0 +1,75 @@
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
+import react from "@astrojs/react";
+import remarkToc from "remark-toc";
+import remarkCollapse from "remark-collapse";
+import sitemap from "@astrojs/sitemap";
+import { SITE } from "./src/config";
+
+// https://astro.build/config
+export default defineConfig({
+  site: SITE.website,
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    react(),
+    sitemap(),
+  ],
+  markdown: {
+    remarkPlugins: [
+      remarkToc,
+      [
+        remarkCollapse,
+        {
+          test: "Table of contents",
+        },
+      ],
+    ],
+    shikiConfig: {
+      theme: "one-dark-pro",
+      wrap: true,
+    },
+    extendDefaultPlugins: true,
+  },
+  vite: {
+    optimizeDeps: {
+      // Force prebundling of problematic dependencies
+      include: ['@resvg/resvg-js', 'satori', 'react', 'react-dom'],
+      // Disable automatic dependency discovery during SSR
+      disabled: false,
+    },
+    ssr: {
+      // Prevent potential hang for file operations by marking packages as external
+      noExternal: ["@resvg/resvg-js", "satori", "react-icons"]
+    },
+    build: {
+      // Add specific build optimizations 
+      rollupOptions: {
+        // Reduce the number of simultaneous file operations for better stability
+        maxParallelFileOps: 3,
+        // Improve chunk sizes
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              // Group node_modules into larger chunks for better performance
+              if (id.includes('react')) {
+                return 'react-vendor';
+              }
+              if (id.includes('@astrojs')) {
+                return 'astro-vendor';
+              }
+              return 'vendor';
+            }
+          }
+        }
+      },
+      // Improve CSS splitting
+      cssCodeSplit: true,
+      // Better source maps
+      sourcemap: false,
+    },
+  },
+  // Increase output level for better debugging
+  logLevel: "info",
+});

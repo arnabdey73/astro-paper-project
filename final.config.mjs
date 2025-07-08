@@ -1,4 +1,4 @@
-// Simple, optimized configuration to avoid SSR timeouts
+// Simple, optimized configuration that works with Astro v5.11.0
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import { SITE } from "./src/config";
@@ -37,25 +37,6 @@ export default defineConfig({
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true,
-    }
-  },
-  
-  // Add build optimization settings
-  vite: {
-    build: {
-      // Improve CSS splitting
-      cssCodeSplit: true,
-      // Reduce chunk size
-      chunkSizeWarningLimit: 1000,
-      // Better tree-shaking
-      minify: 'terser',
-      // Avoid browser cache issues
-      assetsInlineLimit: 4096
-    },
-    // Optimize dependency handling
-    optimizeDeps: {
-      // Forces prebundling of problematic deps
-      include: ['@resvg/resvg-js', 'satori', 'sharp']
     }
   }
 });

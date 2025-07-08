@@ -115,7 +115,14 @@ export default async () => {
                           type: "span",
                           props: {
                             style: { overflow: "hidden", fontWeight: "bold" },
-                            children: new URL(SITE.website).hostname,
+                            children: (() => {
+                              try {
+                                return new URL(SITE.website).hostname;
+                              } catch (e) {
+                                console.warn("Error parsing website URL:", e);
+                                return SITE.website.replace(/https?:\/\/|\/$/g, '');
+                              }
+                            })(),
                           },
                         },
                       },

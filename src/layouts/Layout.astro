@@ -24,13 +24,32 @@ const {
   profile = SITE.profile,
   description = SITE.desc,
   ogImage = SITE.ogImage ? `/${SITE.ogImage}` : "/og.png",
-  canonicalURL = new URL(Astro.url.pathname, Astro.url),
+  canonicalURL = (() => {
+    try {
+      return new URL(Astro.url.pathname, Astro.url).toString();
+    } catch (e) {
+      console.warn("Error creating canonicalURL. Using pathname directly.", e);
+      return Astro.url.pathname;
+    }
+  })(),
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
 } = Astro.props;
 
-const socialImageURL = new URL(ogImage, Astro.url);
+const socialImageURL = (() => {
+  try {
+    // If ogImage is already a full URL, use it directly
+    if (ogImage.startsWith('http://') || ogImage.startsWith('https://')) {
+      return ogImage;
+    }
+    // Otherwise, resolve against Astro.url
+    return new URL(ogImage, Astro.url).toString();
+  } catch (e) {
+    console.warn("Error creating socialImageURL. Using ogImage directly.", e);
+    return ogImage;
+  }
+})();
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -109,7 +128,14 @@ const structuredData = {
       rel="alternate"
       type="application/rss+xml"
       title={SITE.title}
-      href={new URL("rss.xml", Astro.site)}
+      href={(() => {
+        try {
+          return new URL("rss.xml", Astro.site).href;
+        } catch (e) {
+          console.warn("Error creating RSS URL. Falling back to /rss.xml", e);
+          return "/rss.xml";
+        }
+      })()}
     />
 
     <meta name="theme-color" content="" />
