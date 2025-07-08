@@ -1,9 +1,14 @@
 {
+  "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": ".vercel/output/static",
   "framework": "astro",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
+  "cleanUrls": true,
+  "github": {
+    "silent": true
+  },
   "images": {
     "sizes": [256, 640, 1080, 1920],
     "domains": ["blog.arnabdey.dev"],

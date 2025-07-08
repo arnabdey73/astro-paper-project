@@ -2,7 +2,6 @@
 // diagnose-astro-memory.js - Check memory usage and performance issues
 
 import fs from 'fs';
-import path from 'path';
 import os from 'os';
 
 console.log('===== Astro Memory & Performance Diagnostic Tool =====');

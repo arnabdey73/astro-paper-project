@@ -39,11 +39,11 @@ const {
 import { getReadingTime } from "@/utils/getReadingTime";
 
 // Render post content with optimized loading
-const { Content, remarkPluginFrontmatter } = await render(post);
+const { Content } = await render(post);
 
 // Calculate reading time
 const postContent = post.body;
-const readingTime = getReadingTime(postContent);
+const readingTime = postContent ? getReadingTime(postContent) : 0;
 
 let ogImageUrl: string | undefined;
 
