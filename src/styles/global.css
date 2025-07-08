@@ -4,21 +4,21 @@
 
 @layer base {
   :root {
-    --color-bg: #fcfcfc;
-    --color-text-base: #2b2d42;
+    --color-bg: #ffffff;
+    --color-text-base: #1a1a1a;
     --color-accent: #2a9d8f;
-    --color-card: #e9ecef;
-    --color-card-muted: #dee2e6;
-    --color-border: #ddd;
+    --color-card: #f8f9fa;
+    --color-card-muted: #e9ecef;
+    --color-border: #dee2e6;
   }
 
   html[data-theme="dark"] {
-    --color-bg: #1e1e2e;
-    --color-text-base: #edf2f4;
+    --color-bg: #0d1117;
+    --color-text-base: #f0f6fc;
     --color-accent: #2a9d8f;
-    --color-card: #2f3e46;
-    --color-card-muted: #354f52;
-    --color-border: #444;
+    --color-card: #161b22;
+    --color-card-muted: #21262d;
+    --color-border: #30363d;
   }
 
   html {
@@ -32,6 +32,7 @@
     background-color: var(--color-bg);
     font-family: ui-monospace, monospace;
     color: var(--color-text-base);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   section,

@@ -10,6 +10,9 @@ export default {
           accent: "var(--color-accent)",
           inverted: "var(--color-text-inverted)",
         },
+        foreground: "var(--color-text-base)",
+        accent: "var(--color-accent)",
+        muted: "var(--color-text-base)",
       },
       backgroundColor: {
         skin: {
@@ -19,6 +22,8 @@ export default {
           card: "var(--color-card)",
           "card-muted": "var(--color-card-muted)",
         },
+        background: "var(--color-bg)",
+        muted: "var(--color-card)",
       },
       outlineColor: {
         skin: {
@@ -31,6 +36,7 @@ export default {
           fill: "var(--color-text-base)",
           accent: "var(--color-accent)",
         },
+        border: "var(--color-border)",
       },
       fill: {
         skin: {
