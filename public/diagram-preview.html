@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenStack DevOps Architecture Preview</title>
+    <style>
+        body {
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+        h1 {
+            color: #1e293b;
+            margin-bottom: 2rem;
+        }
+        .diagram-container {
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        p {
+            max-width: 900px;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+        .controls {
+            margin-bottom: 2rem;
+        }
+        button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            margin-right: 0.5rem;
+        }
+        button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <h1>OpenStack DevOps Architecture Preview</h1>
+    
+    <div class="controls">
+        <button id="fullscreen">View Fullscreen</button>
+        <button id="download">Download SVG</button>
+    </div>
+    
+    <div class="diagram-container">
+        <object id="svg-object" type="image/svg+xml" data="/assets/images/posts/openstack-devops-architecture.svg" width="100%"></object>
+    </div>
+    
+    <p>
+        This interactive architecture diagram illustrates the OpenStack DevOps Suite components and their relationships.
+        The diagram features four main modules: Automation (Terraform, Ansible), Monitoring (Prometheus, Grafana),
+        CI/CD (Jenkins, GitHub Actions), and Configuration Management at the center. Animated data flows between
+        components demonstrate the integrated nature of the platform.
+    </p>
+    
+    <script>
+        document.getElementById('fullscreen').addEventListener('click', function() {
+            const svgObject = document.getElementById('svg-object');
+            if (svgObject.requestFullscreen) {
+                svgObject.requestFullscreen();
+            }
+        });
+        
+        document.getElementById('download').addEventListener('click', function() {
+            const svgUrl = '/assets/images/posts/openstack-devops-architecture.svg';
+            const link = document.createElement('a');
+            link.href = svgUrl;
+            link.download = 'openstack-devops-architecture.svg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+</body>
+</html>

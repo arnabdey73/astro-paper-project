@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="700" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a2e" />
+      <stop offset="100%" stop-color="#16213e" />
+    </linearGradient>
+    <linearGradient id="centerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4361ee" />
+      <stop offset="100%" stop-color="#3a0ca3" />
+    </linearGradient>
+    <linearGradient id="automationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7209b7" />
+      <stop offset="100%" stop-color="#560bad" />
+    </linearGradient>
+    <linearGradient id="monitoringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f72585" />
+      <stop offset="100%" stop-color="#b5179e" />
+    </linearGradient>
+    <linearGradient id="cicdGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4cc9f0" />
+      <stop offset="100%" stop-color="#4895ef" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <!-- Animations -->
+    <animate xlink:href="#pulse" attributeName="r" values="30;35;30" dur="3s" repeatCount="indefinite" />
+    
+    <!-- Connection Animations -->
+    <animate id="flowAnimation1" xlink:href="#path1" attributeName="stroke-dashoffset" from="500" to="0" dur="15s" repeatCount="indefinite" />
+    <animate id="flowAnimation2" xlink:href="#path2" attributeName="stroke-dashoffset" from="500" to="0" dur="12s" repeatCount="indefinite" />
+    <animate id="flowAnimation3" xlink:href="#path3" attributeName="stroke-dashoffset" from="500" to="0" dur="18s" repeatCount="indefinite" />
+    <animate id="flowAnimation4" xlink:href="#path4" attributeName="stroke-dashoffset" from="500" to="0" dur="10s" repeatCount="indefinite" />
+    
+    <!-- Symbol definitions -->
+    <symbol id="cogSymbol" viewBox="0 0 24 24">
+      <path fill="white" d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" />
+    </symbol>
+    
+    <symbol id="rocketSymbol" viewBox="0 0 24 24">
+      <path fill="white" d="M13.13,22.19L11.5,18.36C13.07,17.78 14.54,17 15.9,16.09L13.13,22.19M5.64,12.5L1.81,10.87L7.91,8.1C7,9.46 6.22,10.93 5.64,12.5M21.61,2.39C21.61,2.39 16.66,0.269 11,5.93C8.81,8.12 7.5,10.53 6.65,12.64C6.37,13.39 6.56,14.21 7.11,14.77L9.24,16.89C9.79,17.45 10.61,17.63 11.36,17.35C13.5,16.53 15.88,15.19 18.07,13C23.73,7.34 21.61,2.39 21.61,2.39M14.54,9.46C13.76,8.68 13.76,7.42 14.54,6.64C15.32,5.86 16.58,5.86 17.36,6.64C18.14,7.42 18.14,8.68 17.36,9.46C16.58,10.24 15.32,10.24 14.54,9.46Z" />
+    </symbol>
+    
+    <symbol id="graphSymbol" viewBox="0 0 24 24">
+      <path fill="white" d="M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z" />
+    </symbol>
+    
+    <symbol id="serverSymbol" viewBox="0 0 24 24">
+      <path fill="white" d="M4,1H20A1,1 0 0,1 21,2V6A1,1 0 0,1 20,7H4A1,1 0 0,1 3,6V2A1,1 0 0,1 4,1M4,9H20A1,1 0 0,1 21,10V14A1,1 0 0,1 20,15H4A1,1 0 0,1 3,14V10A1,1 0 0,1 4,9M4,17H20A1,1 0 0,1 21,18V22A1,1 0 0,1 20,23H4A1,1 0 0,1 3,22V18A1,1 0 0,1 4,17M9,5H10V3H9V5M9,13H10V11H9V13M9,21H10V19H9V21M5,3V5H7V3H5M5,11V13H7V11H5M5,19V21H7V19H5Z" />
+    </symbol>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGradient)" />
+  
+  <!-- Title -->
+  <text x="500" y="60" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">OpenStack DevOps Suite Architecture</text>
+  <text x="500" y="90" font-family="Arial, sans-serif" font-size="16" fill="#aaa" text-anchor="middle">A Comprehensive Automation Platform for Modern Infrastructure</text>
+  
+  <!-- Center Module: Configuration Management -->
+  <g id="configManagement">
+    <circle cx="500" cy="350" r="100" fill="url(#centerGradient)" filter="url(#glow)" />
+    <circle cx="500" cy="350" r="30" fill="#ffffff20" id="pulse">
+      <animate attributeName="r" values="30;35;30" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <use href="#cogSymbol" x="470" y="320" width="60" height="60" />
+    <text x="500" y="400" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">Configuration</text>
+    <text x="500" y="425" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">Management</text>
+    <text x="500" y="450" font-family="Arial, sans-serif" font-size="14" fill="#ddd" text-anchor="middle">(Ansible, Chef)</text>
+  </g>
+  
+  <!-- Automation Module -->
+  <g id="automation">
+    <circle cx="250" cy="200" r="90" fill="url(#automationGradient)" filter="url(#glow)" />
+    <use href="#serverSymbol" x="220" y="170" width="60" height="60" />
+    <text x="250" y="250" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">Infrastructure</text>
+    <text x="250" y="275" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">Automation</text>
+    <text x="250" y="300" font-family="Arial, sans-serif" font-size="14" fill="#ddd" text-anchor="middle">(Terraform, Heat)</text>
+  </g>
+  
+  <!-- Monitoring Module -->
+  <g id="monitoring">
+    <circle cx="250" cy="500" r="90" fill="url(#monitoringGradient)" filter="url(#glow)" />
+    <use href="#graphSymbol" x="220" y="470" width="60" height="60" />
+    <text x="250" y="550" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">Monitoring &</text>
+    <text x="250" y="575" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">Observability</text>
+    <text x="250" y="600" font-family="Arial, sans-serif" font-size="14" fill="#ddd" text-anchor="middle">(Prometheus, Grafana)</text>
+  </g>
+  
+  <!-- CI/CD Module -->
+  <g id="cicd">
+    <circle cx="750" cy="350" r="90" fill="url(#cicdGradient)" filter="url(#glow)" />
+    <use href="#rocketSymbol" x="720" y="320" width="60" height="60" />
+    <text x="750" y="400" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">CI/CD</text>
+    <text x="750" y="425" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">Pipelines</text>
+    <text x="750" y="450" font-family="Arial, sans-serif" font-size="14" fill="#ddd" text-anchor="middle">(Jenkins, GitHub Actions)</text>
+  </g>
+  
+  <!-- Connections -->
+  <g id="connections">
+    <!-- Path from Automation to Config Management -->
+    <path id="path1" d="M316 250 Q 400 300 430 335" stroke="#7209b7" stroke-width="3" stroke-dasharray="10" stroke-dashoffset="0" fill="none" opacity="0.8">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="3s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Path from Config Management to Automation -->
+    <path id="path2" d="M430 320 Q 400 270 316 220" stroke="#4361ee" stroke-width="3" stroke-dasharray="10" stroke-dashoffset="0" fill="none" opacity="0.8">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2.5s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Path from Monitoring to Config Management -->
+    <path id="path3" d="M316 450 Q 400 400 430 365" stroke="#f72585" stroke-width="3" stroke-dasharray="10" stroke-dashoffset="0" fill="none" opacity="0.8">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="4s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Path from Config Management to Monitoring -->
+    <path id="path4" d="M430 380 Q 400 430 316 480" stroke="#4361ee" stroke-width="3" stroke-dasharray="10" stroke-dashoffset="0" fill="none" opacity="0.8">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="3.5s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Path from CI/CD to Config Management -->
+    <path id="path5" d="M684 350 L 600 350" stroke="#4cc9f0" stroke-width="3" stroke-dasharray="10" stroke-dashoffset="0" fill="none" opacity="0.8">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Path from Config Management to CI/CD -->
+    <path id="path6" d="M600 370 L 684 370" stroke="#4361ee" stroke-width="3" stroke-dasharray="10" stroke-dashoffset="0" fill="none" opacity="0.8">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2.2s" repeatCount="indefinite" />
+    </path>
+  </g>
+  
+  <!-- Data flow points -->
+  <circle cx="400" cy="300" r="4" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="400" r="4" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="650" cy="350" r="4" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="2.1s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="650" cy="370" r="4" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="2.4s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Legend -->
+  <rect x="50" y="620" width="900" height="60" fill="#ffffff15" rx="5" ry="5" />
+  <text x="70" y="645" font-family="Arial, sans-serif" font-size="14" fill="white">Data Flow:</text>
+  <line x1="150" y1="645" x2="200" y2="645" stroke="#ffffff" stroke-width="2" stroke-dasharray="5" />
+  <text x="220" y="645" font-family="Arial, sans-serif" font-size="14" fill="white">Configuration</text>
+  <line x1="330" y1="645" x2="380" y2="645" stroke="#4cc9f0" stroke-width="2" stroke-dasharray="5" />
+  <text x="400" y="645" font-family="Arial, sans-serif" font-size="14" fill="white">Deployment</text>
+  <line x1="500" y1="645" x2="550" y2="645" stroke="#f72585" stroke-width="2" stroke-dasharray="5" />
+  <text x="570" y="645" font-family="Arial, sans-serif" font-size="14" fill="white">Monitoring</text>
+  <line x1="670" y1="645" x2="720" y2="645" stroke="#7209b7" stroke-width="2" stroke-dasharray="5" />
+  <text x="740" y="645" font-family="Arial, sans-serif" font-size="14" fill="white">Automation</text>
+  
+  <!-- Footer text -->
+  <text x="500" y="685" font-family="Arial, sans-serif" font-size="12" fill="#aaa" text-anchor="middle">Interactive diagram: The architecture features four main components interconnected with data flows.</text>
+    <linearGradient id="connectorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6B7280" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#4B5563" stop-opacity="0.6" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.3" />
+    </filter>
+    
+    <!-- Animation -->
+    <style type="text/css">
+      @keyframes pulse {
+        0% { opacity: 0.7; }
+        50% { opacity: 1; }
+        100% { opacity: 0.7; }
+      }
+      @keyframes dash {
+        to { stroke-dashoffset: 0; }
+      }
+      .connector {
+        stroke-dasharray: 10;
+        stroke-dashoffset: 1000;
+        animation: dash 30s linear infinite;
+      }
+      .pulse {
+        animation: pulse 3s infinite ease-in-out;
+      }
+      .module-icon {
+        transform-origin: center;
+        transition: transform 0.3s ease-out;
+      }
+      .module-icon:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="600" fill="url(#bgGradient)" rx="20" ry="20" />
+  
+  <!-- Title -->
+  <text x="450" y="50" font-family="Arial, sans-serif" font-size="30" fill="white" text-anchor="middle" font-weight="bold">OpenStack DevOps Suite Architecture</text>
+  
+  <!-- Central Node -->
+  <g transform="translate(450, 300)" filter="url(#dropShadow)">
+    <circle cx="0" cy="0" r="90" fill="url(#configGradient)" class="pulse" />
+    <circle cx="0" cy="0" r="85" fill="url(#configGradient)" opacity="0.8" />
+    <text x="0" y="-25" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Configuration</text>
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Management</text>
+    <text x="0" y="35" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">• Environment Configs</text>
+    <text x="0" y="55" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">• Secrets Management</text>
+  </g>
+  
+  <!-- Automation Module -->
+  <g transform="translate(210, 150)" filter="url(#dropShadow)" class="module-icon">
+    <rect x="-110" y="-80" width="220" height="160" rx="15" ry="15" fill="url(#automationGradient)" />
+    <text x="0" y="-45" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">Automation</text>
+    <text x="0" y="-10" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">• Terraform</text>
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">• Ansible</text>
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">• Scripts</text>
+    
+    <!-- Terraform Logo -->
+    <g transform="translate(-80, -40) scale(0.25)">
+      <rect x="-20" y="-20" width="90" height="90" rx="10" ry="10" fill="#5C4EE5" opacity="0.9" />
+      <path d="M0,0 L0,40 L35,20 Z" fill="white" transform="translate(5, 15)"/>
+    </g>
+    
+    <!-- Ansible Logo -->
+    <g transform="translate(-80, 10) scale(0.2)">
+      <circle cx="25" cy="25" r="45" fill="#EE0000" opacity="0.9" />
+      <path d="M25,5 L45,45 L25,35 L5,45 Z" fill="white" />
+    </g>
+  </g>
+  
+  <!-- Monitoring Module -->
+  <g transform="translate(690, 150)" filter="url(#dropShadow)" class="module-icon">
+    <rect x="-110" y="-80" width="220" height="160" rx="15" ry="15" fill="url(#monitoringGradient)" />
+    <text x="0" y="-45" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">Monitoring</text>
+    <text x="0" y="-10" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">• Prometheus</text>
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">• Grafana</text>
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">• Alerting</text>
+    
+    <!-- Prometheus Logo -->
+    <g transform="translate(-80, -40) scale(0.08)">
+      <path d="M128.0,0 C57.3,0 0,57.3 0,128.0 C0,198.7 57.3,256 128.0,256 C198.7,256 256,198.7 256,128.0 C256,57.3 198.7,0 128.0,0 Z M128.0,220.8 C77.5,220.8 36.9,180.2 36.9,129.8 C36.9,79.3 77.5,38.7 128.0,38.7 C178.5,38.7 219.1,79.3 219.1,129.8 C219.1,180.2 178.5,220.8 128.0,220.8 Z" fill="#E6522C" />
+      <path d="M128.0,50 L128.0,88 M128.0,168 L128.0,206 M50,128 L88,128 M168,128 L206,128 M68,68 L95,95 M161,161 L188,188 M68,188 L95,161 M161,95 L188,68" stroke="#E6522C" stroke-width="10" stroke-linecap="round" />
+    </g>
+    
+    <!-- Grafana Logo -->
+    <g transform="translate(-80, 10) scale(0.25)">
+      <rect x="-20" y="-20" width="90" height="90" rx="10" ry="10" fill="#F8B300" opacity="0.9" />
+      <path d="M25,5 A20,20 0 0,1 25,45 A20,20 0 0,1 25,5 Z M25,15 A10,10 0 0,0 25,35 A10,10 0 0,0 25,15 Z" fill="white" />
+    </g>
+  </g>
+  
+  <!-- CI/CD Module -->
+  <g transform="translate(450, 480)" filter="url(#dropShadow)" class="module-icon">
+    <rect x="-110" y="-80" width="220" height="160" rx="15" ry="15" fill="url(#cicdGradient)" />
+    <text x="0" y="-45" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">CI/CD</text>
+    <text x="0" y="-10" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">• Jenkins</text>
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">• GitHub Actions</text>
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">• Pipeline Management</text>
+    
+    <!-- Jenkins Logo -->
+    <g transform="translate(-80, -40) scale(0.25)">
+      <rect x="-20" y="-20" width="90" height="90" rx="10" ry="10" fill="#D33833" opacity="0.9" />
+      <path d="M25,0 L50,25 L25,50 L0,25 Z" fill="white" />
+    </g>
+    
+    <!-- GitHub Actions Logo -->
+    <g transform="translate(-80, 10) scale(0.25)">
+      <rect x="-20" y="-20" width="90" height="90" rx="10" ry="10" fill="#2088FF" opacity="0.9" />
+      <path d="M25,5 L45,25 L25,45 L5,25 Z" fill="white" />
+    </g>
+  </g>
+  
+  <!-- Connectors -->
+  <g>
+    <!-- Automation to Center -->
+    <path d="M250,210 Q350,260 400,300" stroke="url(#connectorGradient)" stroke-width="3" fill="none" class="connector" />
+    
+    <!-- Monitoring to Center -->
+    <path d="M650,210 Q550,260 500,300" stroke="url(#connectorGradient)" stroke-width="3" fill="none" class="connector" />
+    
+    <!-- CI/CD to Center -->
+    <path d="M450,400 L450,350" stroke="url(#connectorGradient)" stroke-width="3" fill="none" class="connector" />
+    
+    <!-- Automation to Monitoring -->
+    <path d="M320,150 Q450,120 580,150" stroke="url(#connectorGradient)" stroke-width="3" fill="none" class="connector" />
+    
+    <!-- Automation to CI/CD -->
+    <path d="M210,230 Q240,350 350,440" stroke="url(#connectorGradient)" stroke-width="3" fill="none" class="connector" />
+    
+    <!-- Monitoring to CI/CD -->
+    <path d="M690,230 Q660,350 550,440" stroke="url(#connectorGradient)" stroke-width="3" fill="none" class="connector" />
+    
+    <!-- Data Flow Indicators -->
+    <circle cx="350" cy="260" r="5" fill="white" class="pulse" />
+    <circle cx="550" cy="260" r="5" fill="white" class="pulse" />
+    <circle cx="450" cy="375" r="5" fill="white" class="pulse" />
+    <circle cx="450" cy="125" r="5" fill="white" class="pulse" />
+    <circle cx="260" cy="350" r="5" fill="white" class="pulse" />
+    <circle cx="640" cy="350" r="5" fill="white" class="pulse" />
+  </g>
+  
+  <!-- Cloud Services Layer -->
+  <g transform="translate(450, 560)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">OpenStack Infrastructure</text>
+    
+    <g transform="translate(-200, 0)">
+      <path d="M-40,-10 L40,-10 L40,10 L-40,10 Z" fill="#E2E8F0" opacity="0.7" />
+      <text x="0" y="4" font-family="Arial, sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">Compute</text>
+    </g>
+    
+    <g transform="translate(-100, 0)">
+      <path d="M-40,-10 L40,-10 L40,10 L-40,10 Z" fill="#E2E8F0" opacity="0.7" />
+      <text x="0" y="4" font-family="Arial, sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">Network</text>
+    </g>
+    
+    <g transform="translate(0, 0)">
+      <path d="M-40,-10 L40,-10 L40,10 L-40,10 Z" fill="#E2E8F0" opacity="0.7" />
+      <text x="0" y="4" font-family="Arial, sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">Storage</text>
+    </g>
+    
+    <g transform="translate(100, 0)">
+      <path d="M-40,-10 L40,-10 L40,10 L-40,10 Z" fill="#E2E8F0" opacity="0.7" />
+      <text x="0" y="4" font-family="Arial, sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">Identity</text>
+    </g>
+    
+    <g transform="translate(200, 0)">
+      <path d="M-40,-10 L40,-10 L40,10 L-40,10 Z" fill="#E2E8F0" opacity="0.7" />
+      <text x="0" y="4" font-family="Arial, sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">API</text>
+    </g>
+  </g>
+</svg>

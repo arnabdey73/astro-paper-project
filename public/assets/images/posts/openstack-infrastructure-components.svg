@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="700" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1729" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="novaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#b91c1c" />
+    </linearGradient>
+    <linearGradient id="neutronGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="cinderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="swiftGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="keystoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#6d28d9" />
+    </linearGradient>
+    <linearGradient id="horizonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" />
+      <stop offset="100%" stop-color="#0d9488" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <!-- Icons -->
+    <symbol id="serverIcon" viewBox="0 0 24 24">
+      <path fill="white" d="M4,1H20A1,1 0 0,1 21,2V6A1,1 0 0,1 20,7H4A1,1 0 0,1 3,6V2A1,1 0 0,1 4,1M4,9H20A1,1 0 0,1 21,10V14A1,1 0 0,1 20,15H4A1,1 0 0,1 3,14V10A1,1 0 0,1 4,9M4,17H20A1,1 0 0,1 21,18V22A1,1 0 0,1 20,23H4A1,1 0 0,1 3,22V18A1,1 0 0,1 4,17M9,5H10V3H9V5M9,13H10V11H9V13M9,21H10V19H9V21M5,3V5H7V3H5M5,11V13H7V11H5M5,19V21H7V19H5Z" />
+    </symbol>
+    
+    <symbol id="networkIcon" viewBox="0 0 24 24">
+      <path fill="white" d="M17,3A2,2 0 0,1 19,5V15A2,2 0 0,1 17,17H13V19H14A1,1 0 0,1 15,20H22V22H15A1,1 0 0,1 14,23H10A1,1 0 0,1 9,22H2V20H9A1,1 0 0,1 10,19H11V17H7C5.89,17 5,16.1 5,15V5A2,2 0 0,1 7,3H17M7,5V15H17V5H7Z" />
+    </symbol>
+    
+    <symbol id="storageIcon" viewBox="0 0 24 24">
+      <path fill="white" d="M2,2H20A2,2 0 0,1 22,4V8A2,2 0 0,1 20,10H2V2M4,4V8H7V4H4M2,12H20A2,2 0 0,1 22,14V18A2,2 0 0,1 20,20H2V12M4,14V18H7V14H4M9,4V8H12V4H9M9,14V18H12V14H9M14,4V8H17V4H14M14,14V18H17V14H14M19,4V8H20V4H19M19,14V18H20V14H19Z" />
+    </symbol>
+    
+    <symbol id="objectIcon" viewBox="0 0 24 24">
+      <path fill="white" d="M19,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4H10L12,6H19A2,2 0 0,1 21,8V18C21,19.1 20.1,20 19,20Z" />
+    </symbol>
+    
+    <symbol id="identityIcon" viewBox="0 0 24 24">
+      <path fill="white" d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" />
+    </symbol>
+    
+    <symbol id="dashboardIcon" viewBox="0 0 24 24">
+      <path fill="white" d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z" />
+    </symbol>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGradient)" />
+
+  <!-- Title -->
+  <text x="500" y="60" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">OpenStack Infrastructure Components</text>
+  <text x="500" y="90" font-family="Arial, sans-serif" font-size="16" fill="#aaa" text-anchor="middle">Core Services and Their Relationships</text>
+
+  <!-- Central Keystone (Identity) Node -->
+  <g id="keystone">
+    <circle cx="500" cy="350" r="80" fill="url(#keystoneGradient)" filter="url(#glow)" />
+    <use href="#identityIcon" x="470" y="320" width="60" height="60" />
+    <text x="500" y="395" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Keystone</text>
+    <text x="500" y="415" font-family="Arial, sans-serif" font-size="14" fill="#ddd" text-anchor="middle">(Identity)</text>
+    <circle cx="500" cy="350" r="95" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5 5" opacity="0.6">
+      <animate attributeName="r" values="95;100;95" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.6;0.4;0.6" dur="4s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Nova (Compute) Node -->
+  <g id="nova">
+    <circle cx="250" cy="200" r="70" fill="url(#novaGradient)" filter="url(#glow)" />
+    <use href="#serverIcon" x="225" y="175" width="50" height="50" />
+    <text x="250" y="235" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Nova</text>
+    <text x="250" y="255" font-family="Arial, sans-serif" font-size="14" fill="#ddd" text-anchor="middle">(Compute)</text>
+    <circle cx="250" cy="200" r="65" fill="none" stroke="#ef4444" stroke-width="2" opacity="0.6">
+      <animate attributeName="r" values="65;70;65" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.6;0.3;0.6" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Neutron (Network) Node -->
+  <g id="neutron">
+    <circle cx="700" cy="250" r="70" fill="url(#neutronGradient)" filter="url(#glow)" />
+    <use href="#networkIcon" x="675" y="225" width="50" height="50" />
+    <text x="700" y="285" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Neutron</text>
+    <text x="700" y="305" font-family="Arial, sans-serif" font-size="14" fill="#ddd" text-anchor="middle">(Network)</text>
+    <circle cx="700" cy="250" r="65" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.6">
+      <animate attributeName="r" values="65;70;65" dur="3.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.6;0.3;0.6" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Cinder (Block Storage) Node -->
+  <g id="cinder">
+    <circle cx="300" cy="500" r="70" fill="url(#cinderGradient)" filter="url(#glow)" />
+    <use href="#storageIcon" x="275" y="475" width="50" height="50" />
+    <text x="300" y="535" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Cinder</text>
+    <text x="300" y="555" font-family="Arial, sans-serif" font-size="14" fill="#ddd" text-anchor="middle">(Block Storage)</text>
+    <circle cx="300" cy="500" r="65" fill="none" stroke="#10b981" stroke-width="2" opacity="0.6">
+      <animate attributeName="r" values="65;70;65" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.6;0.3;0.6" dur="4s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Swift (Object Storage) Node -->
+  <g id="swift">
+    <circle cx="650" cy="500" r="70" fill="url(#swiftGradient)" filter="url(#glow)" />
+    <use href="#objectIcon" x="625" y="475" width="50" height="50" />
+    <text x="650" y="535" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Swift</text>
+    <text x="650" y="555" font-family="Arial, sans-serif" font-size="14" fill="#ddd" text-anchor="middle">(Object Storage)</text>
+    <circle cx="650" cy="500" r="65" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6">
+      <animate attributeName="r" values="65;70;65" dur="3.7s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.6;0.3;0.6" dur="3.7s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Horizon (Dashboard) Node -->
+  <g id="horizon">
+    <circle cx="500" cy="150" r="60" fill="url(#horizonGradient)" filter="url(#glow)" />
+    <use href="#dashboardIcon" x="475" y="125" width="50" height="50" />
+    <text x="500" y="185" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Horizon</text>
+    <text x="500" y="205" font-family="Arial, sans-serif" font-size="14" fill="#ddd" text-anchor="middle">(Dashboard)</text>
+  </g>
+
+  <!-- Connections -->
+  <!-- Keystone to Nova -->
+  <path d="M433 310 Q 380 270 320 220" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5" fill="none" opacity="0.8">
+    <animate attributeName="stroke-dashoffset" from="200" to="0" dur="15s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Keystone to Neutron -->
+  <path d="M570 320 Q 620 300 630 280" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5" fill="none" opacity="0.8">
+    <animate attributeName="stroke-dashoffset" from="200" to="0" dur="12s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Keystone to Cinder -->
+  <path d="M450 410 Q 400 440 370 480" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5" fill="none" opacity="0.8">
+    <animate attributeName="stroke-dashoffset" from="200" to="0" dur="18s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Keystone to Swift -->
+  <path d="M550 410 Q 580 440 600 470" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5" fill="none" opacity="0.8">
+    <animate attributeName="stroke-dashoffset" from="200" to="0" dur="15s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Keystone to Horizon -->
+  <path d="M500 270 L 500 210" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5" fill="none" opacity="0.8">
+    <animate attributeName="stroke-dashoffset" from="200" to="0" dur="10s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Nova to Neutron -->
+  <path d="M320 200 Q 500 150 630 230" stroke="#ef4444" stroke-width="2" stroke-dasharray="5" fill="none" opacity="0.6">
+    <animate attributeName="stroke-dashoffset" from="200" to="0" dur="20s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Nova to Cinder -->
+  <path d="M260 270 Q 270 370 290 430" stroke="#ef4444" stroke-width="2" stroke-dasharray="5" fill="none" opacity="0.6">
+    <animate attributeName="stroke-dashoffset" from="200" to="0" dur="15s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Swift to Cinder (Optional Connection) -->
+  <path d="M580 500 L 370 500" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.5">
+    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="30s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Data Flow Indicators -->
+  <circle cx="400" cy="250" r="3" fill="white">
+    <animate attributeName="cy" values="310;270;310" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0.5;1" dur="4s" repeatCount="indefinite" />
+  </circle>
+
+  <circle cx="600" cy="300" r="3" fill="white">
+    <animate attributeName="cx" values="570;600;570" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite" />
+  </circle>
+
+  <circle cx="450" cy="450" r="3" fill="white">
+    <animate attributeName="cy" values="410;450;410" dur="5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0.5;1" dur="5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Legend -->
+  <rect x="50" y="620" width="900" height="60" fill="#ffffff15" rx="5" ry="5" />
+  <text x="70" y="645" font-family="Arial, sans-serif" font-size="14" fill="white">Service Types:</text>
+  
+  <circle cx="160" cy="645" r="8" fill="url(#keystoneGradient)" />
+  <text x="175" y="650" font-family="Arial, sans-serif" font-size="14" fill="white">Identity</text>
+  
+  <circle cx="260" cy="645" r="8" fill="url(#novaGradient)" />
+  <text x="275" y="650" font-family="Arial, sans-serif" font-size="14" fill="white">Compute</text>
+  
+  <circle cx="360" cy="645" r="8" fill="url(#neutronGradient)" />
+  <text x="375" y="650" font-family="Arial, sans-serif" font-size="14" fill="white">Network</text>
+  
+  <circle cx="460" cy="645" r="8" fill="url(#cinderGradient)" />
+  <text x="475" y="650" font-family="Arial, sans-serif" font-size="14" fill="white">Block Storage</text>
+  
+  <circle cx="590" cy="645" r="8" fill="url(#swiftGradient)" />
+  <text x="605" y="650" font-family="Arial, sans-serif" font-size="14" fill="white">Object Storage</text>
+  
+  <circle cx="720" cy="645" r="8" fill="url(#horizonGradient)" />
+  <text x="735" y="650" font-family="Arial, sans-serif" font-size="14" fill="white">Dashboard</text>
+  
+  <!-- Footer text -->
+  <text x="500" y="685" font-family="Arial, sans-serif" font-size="12" fill="#aaa" text-anchor="middle">Interactive diagram: This visualization shows the core OpenStack services and their relationships.</text>
+    </linearGradient>
+    <linearGradient id="apiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B794F4" />
+      <stop offset="100%" stop-color="#805AD5" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feFlood flood-color="#60A5FA" flood-opacity="0.3" result="color" />
+      <feComposite in="color" in2="blur" operator="in" result="shadow" />
+      <feComposite in="SourceGraphic" in2="shadow" operator="over" />
+    </filter>
+    
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.3" />
+    </filter>
+    
+    <!-- Animation -->
+    <style type="text/css">
+      @keyframes pulse {
+        0% { opacity: 0.7; }
+        50% { opacity: 1; }
+        100% { opacity: 0.7; }
+      }
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes dataFlow {
+        0% { stroke-dashoffset: 1000; }
+        100% { stroke-dashoffset: 0; }
+      }
+      .data-flow {
+        stroke-dasharray: 10;
+        stroke-dashoffset: 1000;
+        animation: dataFlow 30s linear infinite;
+      }
+      .pulse {
+        animation: pulse 3s infinite ease-in-out;
+      }
+      .rotate {
+        animation: rotate 40s linear infinite;
+        transform-origin: center;
+      }
+      .hover-scale {
+        transition: transform 0.3s ease-out;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="600" fill="url(#bgGradient)" rx="10" ry="10" />
+  
+  <!-- Title -->
+  <text x="450" y="40" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">OpenStack Infrastructure Components</text>
+  <text x="450" y="70" font-family="Arial, sans-serif" font-size="16" fill="#A0AEC0" text-anchor="middle">Automated by DevOps Suite</text>
+  
+  <!-- Central API Gateway -->
+  <g transform="translate(450, 200)" filter="url(#dropShadow)" class="hover-scale">
+    <circle cx="0" cy="0" r="70" fill="url(#apiGradient)" class="pulse" />
+    <circle cx="0" cy="0" r="60" fill="url(#apiGradient)" opacity="0.9" />
+    
+    <g class="rotate">
+      <circle cx="0" cy="-40" r="8" fill="white" opacity="0.6" />
+      <circle cx="34.6" cy="-20" r="8" fill="white" opacity="0.6" />
+      <circle cx="34.6" cy="20" r="8" fill="white" opacity="0.6" />
+      <circle cx="0" cy="40" r="8" fill="white" opacity="0.6" />
+      <circle cx="-34.6" cy="20" r="8" fill="white" opacity="0.6" />
+      <circle cx="-34.6" cy="-20" r="8" fill="white" opacity="0.6" />
+    </g>
+    
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">API Gateway</text>
+    <text x="0" y="25" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">RESTful Services</text>
+  </g>
+  
+  <!-- Compute Service -->
+  <g transform="translate(200, 320)" filter="url(#glow)" class="hover-scale">
+    <rect x="-80" y="-60" width="160" height="120" rx="15" ry="15" fill="url(#computeGradient)" />
+    <text x="0" y="-30" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">Nova</text>
+    <text x="0" y="-5" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Compute Service</text>
+    
+    <!-- Server Icons -->
+    <g transform="translate(-40, 25)">
+      <rect x="-15" y="-15" width="30" height="30" rx="3" ry="3" fill="#E2E8F0" opacity="0.8" />
+      <line x1="-10" y1="-5" x2="10" y2="-5" stroke="#2D3748" stroke-width="2" />
+      <line x1="-10" y1="0" x2="10" y2="0" stroke="#2D3748" stroke-width="2" />
+      <line x1="-10" y1="5" x2="10" y2="5" stroke="#2D3748" stroke-width="2" />
+    </g>
+    
+    <g transform="translate(40, 25)">
+      <rect x="-15" y="-15" width="30" height="30" rx="3" ry="3" fill="#E2E8F0" opacity="0.8" />
+      <line x1="-10" y1="-5" x2="10" y2="-5" stroke="#2D3748" stroke-width="2" />
+      <line x1="-10" y1="0" x2="10" y2="0" stroke="#2D3748" stroke-width="2" />
+      <line x1="-10" y1="5" x2="10" y2="5" stroke="#2D3748" stroke-width="2" />
+    </g>
+  </g>
+  
+  <!-- Network Service -->
+  <g transform="translate(450, 450)" filter="url(#glow)" class="hover-scale">
+    <rect x="-80" y="-60" width="160" height="120" rx="15" ry="15" fill="url(#networkGradient)" />
+    <text x="0" y="-30" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">Neutron</text>
+    <text x="0" y="-5" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Network Service</text>
+    
+    <!-- Network Icon -->
+    <g transform="translate(0, 25)">
+      <path d="M-40,0 L40,0 M-30,-15 L30,-15 M-30,15 L30,15" stroke="#E2E8F0" stroke-width="3" stroke-linecap="round" />
+      <circle cx="-30" cy="0" r="5" fill="#E2E8F0" />
+      <circle cx="-10" cy="0" r="5" fill="#E2E8F0" />
+      <circle cx="10" cy="0" r="5" fill="#E2E8F0" />
+      <circle cx="30" cy="0" r="5" fill="#E2E8F0" />
+    </g>
+  </g>
+  
+  <!-- Storage Service -->
+  <g transform="translate(700, 320)" filter="url(#glow)" class="hover-scale">
+    <rect x="-80" y="-60" width="160" height="120" rx="15" ry="15" fill="url(#storageGradient)" />
+    <text x="0" y="-30" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">Cinder/Swift</text>
+    <text x="0" y="-5" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Storage Service</text>
+    
+    <!-- Storage Icons -->
+    <g transform="translate(-40, 25)">
+      <rect x="-15" y="-15" width="30" height="30" rx="3" ry="3" fill="#E2E8F0" opacity="0.8" />
+      <rect x="-10" y="-10" width="20" height="5" fill="#2D3748" />
+      <rect x="-10" y="-2" width="20" height="5" fill="#2D3748" />
+      <rect x="-10" y="6" width="20" height="5" fill="#2D3748" />
+    </g>
+    
+    <g transform="translate(40, 25)">
+      <rect x="-15" y="-15" width="30" height="30" rx="3" ry="3" fill="#E2E8F0" opacity="0.8" />
+      <rect x="-10" y="-10" width="20" height="5" fill="#2D3748" />
+      <rect x="-10" y="-2" width="20" height="5" fill="#2D3748" />
+      <rect x="-10" y="6" width="20" height="5" fill="#2D3748" />
+    </g>
+  </g>
+  
+  <!-- Identity Service -->
+  <g transform="translate(250, 130)" filter="url(#glow)" class="hover-scale">
+    <rect x="-80" y="-60" width="160" height="120" rx="15" ry="15" fill="url(#identityGradient)" />
+    <text x="0" y="-30" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">Keystone</text>
+    <text x="0" y="-5" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Identity Service</text>
+    
+    <!-- Identity Icon -->
+    <g transform="translate(0, 25)">
+      <circle cx="0" cy="-8" r="12" fill="#E2E8F0" opacity="0.8" />
+      <path d="M-15,15 C-15,0 15,0 15,15" stroke="#E2E8F0" stroke-width="3" fill="none" />
+    </g>
+  </g>
+  
+  <!-- Orchestration Service -->
+  <g transform="translate(650, 130)" filter="url(#glow)" class="hover-scale">
+    <rect x="-80" y="-60" width="160" height="120" rx="15" ry="15" fill="url(#orchestrationGradient)" />
+    <text x="0" y="-30" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">Heat</text>
+    <text x="0" y="-5" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Orchestration</text>
+    
+    <!-- Orchestration Icon -->
+    <g transform="translate(0, 25)">
+      <path d="M-20,-10 L20,-10 L20,10 L-20,10 Z" fill="#E2E8F0" opacity="0.8" />
+      <path d="M-15,-5 L15,-5 M-15,0 L5,0 M-15,5 L10,5" stroke="#2D3748" stroke-width="2" />
+    </g>
+  </g>
+  
+  <!-- Connectors -->
+  <g>
+    <!-- API to Compute -->
+    <path d="M425,250 C400,270 350,280 250,300" stroke="#4299E1" stroke-width="2" fill="none" class="data-flow" />
+    
+    <!-- API to Network -->
+    <path d="M450,270 L450,390" stroke="#48BB78" stroke-width="2" fill="none" class="data-flow" />
+    
+    <!-- API to Storage -->
+    <path d="M475,250 C500,270 550,280 650,300" stroke="#ED8936" stroke-width="2" fill="none" class="data-flow" />
+    
+    <!-- API to Identity -->
+    <path d="M425,150 C400,130 350,120 300,130" stroke="#9F7AEA" stroke-width="2" fill="none" class="data-flow" />
+    
+    <!-- API to Orchestration -->
+    <path d="M475,150 C500,130 550,120 600,130" stroke="#F56565" stroke-width="2" fill="none" class="data-flow" />
+    
+    <!-- Identity to Compute -->
+    <path d="M250,190 L200,260" stroke="#9F7AEA" stroke-width="2" fill="none" class="data-flow" />
+    
+    <!-- Orchestration to Compute -->
+    <path d="M650,190 C550,220 450,240 250,300" stroke="#F56565" stroke-width="2" fill="none" class="data-flow" />
+    
+    <!-- Network to Compute -->
+    <path d="M400,410 L250,380" stroke="#48BB78" stroke-width="2" fill="none" class="data-flow" />
+    
+    <!-- Network to Storage -->
+    <path d="M500,410 L650,380" stroke="#48BB78" stroke-width="2" fill="none" class="data-flow" />
+  </g>
+  
+  <!-- DevOps Automation Layer -->
+  <g transform="translate(450, 550)">
+    <rect x="-350" y="-25" width="700" height="50" rx="10" ry="10" fill="#2D3748" opacity="0.9" />
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">DevOps Automation Layer</text>
+    
+    <g transform="translate(-300, 0)">
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle">Terraform</text>
+    </g>
+    
+    <g transform="translate(-180, 0)">
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle">Ansible</text>
+    </g>
+    
+    <g transform="translate(-60, 0)">
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle">Jenkins</text>
+    </g>
+    
+    <g transform="translate(60, 0)">
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle">Prometheus</text>
+    </g>
+    
+    <g transform="translate(180, 0)">
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle">Grafana</text>
+    </g>
+    
+    <g transform="translate(300, 0)">
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle">GitHub Actions</text>
+    </g>
+  </g>
+</svg>

@@ -1,7 +1,7 @@
 ---
 author: Arnab Dey
 pubDatetime: 2025-05-01T10:00:00Z
-modDatetime: 2025-05-01T10:00:00Z
+modDatetime: 2025-07-08T10:00:00Z
 title: "🔄 OpenStack DevOps Suite: A Comprehensive Automation Platform for Modern Infrastructure"
 slug: openstack-devops-suite-comprehensive-automation-platform
 featured: true
@@ -15,7 +15,7 @@ tags:
   - monitoring
   - terraform
   - ansible
-ogImage: ""
+ogImage: "/assets/images/posts/openstack-devops-architecture.png"
 description: "Discover the OpenStack DevOps Suite - a powerful, open-source automation platform that streamlines infrastructure management, deployment pipelines, and monitoring for modern cloud environments."
 ---
 
@@ -36,28 +36,18 @@ The OpenStack DevOps Suite is an open-source automation platform designed to str
 
 ## Architecture Overview
 
-The suite is architected with modularity and scalability in mind:
+The suite is architected with modularity and scalability in mind, featuring four key interconnected components:
 
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Automation    │    │    Monitoring   │    │     CI/CD       │
-│                 │    │                 │    │                 │
-│ • Terraform     │    │ • Prometheus    │    │ • Jenkins       │
-│ • Ansible       │    │ • Grafana       │    │ • GitHub Actions│
-│ • Scripts       │    │ • Alerting      │    │ • Pipeline Mgmt │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-        │                       │                       │
-        └───────────────────────┼───────────────────────┘
-                               │
-                    ┌─────────────────┐
-                    │  Configuration  │
-                    │   Management    │
-                    │                 │
-                    │ • Environment   │
-                    │   Configs       │
-                    │ • Secrets Mgmt  │
-                    └─────────────────┘
-```
+![OpenStack DevOps Suite Architecture](/assets/images/posts/openstack-devops-architecture.svg)
+
+*Interactive diagram: The architecture showcases the four main components with dynamic data flows between them. Configuration Management (Ansible, Chef) sits at the center, coordinating between Infrastructure Automation (Terraform, Heat), Monitoring & Observability (Prometheus, Grafana), and CI/CD Pipelines (Jenkins, GitHub Actions).*
+
+The architecture is designed to enable seamless information flow and coordination between all components:
+
+- **Configuration Management (Center)** - The heart of the system, ensuring consistent configuration across all environments
+- **Infrastructure Automation (Left-Top)** - Handles infrastructure provisioning and management through code
+- **Monitoring & Observability (Left-Bottom)** - Provides real-time insights into system health and performance
+- **CI/CD Pipelines (Right)** - Automates testing, building, and deployment processes
 
 ## Getting Started
 
@@ -74,23 +64,27 @@ Before diving into the OpenStack DevOps Suite, ensure you have the following too
 ### Quick Setup
 
 1. **Clone the Repository**
+
    ```bash
    git clone https://github.com/arnabdey73/openstack-devops-suite.git
    cd openstack-devops-suite
    ```
 
 2. **Install Dependencies**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 3. **Configure Environment**
+
    ```bash
    cp config/dev/example.env config/dev/.env
    # Edit the .env file with your specific configurations
    ```
 
 4. **Launch the Suite**
+
    ```bash
    docker-compose up -d
    ```
@@ -101,13 +95,28 @@ Before diving into the OpenStack DevOps Suite, ensure you have the following too
 
 The automation layer leverages **Terraform** for infrastructure provisioning and **Ansible** for configuration management:
 
+![OpenStack Infrastructure Components](/assets/images/posts/openstack-infrastructure-components.svg)
+
+*Interactive diagram: This visualization shows the core OpenStack services and their relationships. The diagram highlights how each component communicates with the central Keystone identity service for authentication and authorization.*
+
+Each component plays a critical role in the OpenStack ecosystem:
+
+- **Keystone (Identity Service)** - The central authentication and authorization system
+- **Nova (Compute Service)** - Manages the lifecycle of compute instances
+- **Neutron (Network Service)** - Provides network connectivity between interface devices
+- **Cinder (Block Storage)** - Provides persistent block storage for compute instances
+- **Swift (Object Storage)** - Stores and retrieves arbitrary unstructured data objects
+- **Horizon (Dashboard)** - Provides a web-based user interface for OpenStack services
+
 **Terraform Modules:**
+
 - Network configuration
 - Compute instance management
 - Storage provisioning
 - Security group setup
 
 **Ansible Playbooks:**
+
 - Application deployment
 - System configuration
 - Package management
@@ -118,11 +127,13 @@ The automation layer leverages **Terraform** for infrastructure provisioning and
 Built-in monitoring provides comprehensive visibility into your infrastructure:
 
 **Prometheus Integration:**
+
 - Metrics collection from OpenStack services
 - Custom alerting rules
 - Long-term storage configuration
 
 **Grafana Dashboards:**
+
 - Real-time infrastructure metrics
 - Application performance monitoring
 - Custom visualization panels
@@ -133,12 +144,14 @@ Built-in monitoring provides comprehensive visibility into your infrastructure:
 Automated deployment pipelines ensure consistent and reliable releases:
 
 **Jenkins Integration:**
+
 - Automated testing workflows
 - Deployment orchestration
 - Environment promotion
 - Rollback capabilities
 
 **GitHub Actions:**
+
 - Code quality checks
 - Security scanning
 - Automated documentation
@@ -147,16 +160,19 @@ Automated deployment pipelines ensure consistent and reliable releases:
 ## Use Cases and Benefits
 
 ### For Development Teams
+
 - **Faster Time-to-Market**: Automated provisioning reduces setup time from days to minutes
 - **Consistent Environments**: Infrastructure as Code ensures identical dev, staging, and production environments
 - **Enhanced Collaboration**: Standardized workflows improve team productivity
 
 ### For Operations Teams
+
 - **Reduced Manual Overhead**: Automation eliminates repetitive tasks
 - **Improved Reliability**: Consistent deployments reduce human error
 - **Better Visibility**: Comprehensive monitoring provides actionable insights
 
 ### For Organizations
+
 - **Cost Optimization**: Efficient resource utilization through automation
 - **Scalability**: Easily scale infrastructure based on demand
 - **Compliance**: Automated compliance checks and audit trails
@@ -164,12 +180,14 @@ Automated deployment pipelines ensure consistent and reliable releases:
 ## Best Practices and Recommendations
 
 ### Security Considerations
+
 1. **Secrets Management**: Use encrypted storage for sensitive data
 2. **Access Control**: Implement role-based access control (RBAC)
 3. **Network Security**: Configure proper firewall rules and VPNs
 4. **Regular Updates**: Keep all components updated with security patches
 
 ### Performance Optimization
+
 1. **Resource Planning**: Right-size your infrastructure based on workload requirements
 2. **Monitoring Setup**: Establish baseline metrics and alerting thresholds
 3. **Automation Testing**: Regularly test automation scripts and playbooks
@@ -209,6 +227,7 @@ Here's a practical example of deploying a web application using the suite:
 The OpenStack DevOps Suite thrives on community contributions. Whether you're fixing bugs, adding features, or improving documentation, your contributions are welcome!
 
 ### How to Contribute
+
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
@@ -216,7 +235,16 @@ The OpenStack DevOps Suite thrives on community contributions. Whether you're fi
 5. Submit a pull request
 
 ### Reporting Issues
+
 Found a bug or have a feature request? Please open an issue on the [GitHub repository](https://github.com/arnabdey73/openstack-devops-suite/issues).
+
+## Diagram Interactivity
+
+To explore the interactive architecture diagrams in greater detail, you can view them in our [diagram preview page](/diagram-preview.html). These diagrams allow you to:
+
+- See animated data flows between components
+- Understand the relationships between services
+- Visualize how the DevOps Suite integrates with OpenStack components
 
 ## Future Roadmap
 
