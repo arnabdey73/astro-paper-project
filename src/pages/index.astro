@@ -38,234 +38,251 @@ const recentPosts = sortedPosts.filter(post =>
     <section id="hero">
       <div class="hero-image">
         <div class="hero-banner overflow-hidden">
-          <svg width="100%" height="100%" viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" class="hero-svg" preserveAspectRatio="xMidYMid slice">
+          <svg width="100%" height="100%" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg" class="hero-svg" preserveAspectRatio="xMidYMid slice">
             <defs>
-              <!-- Enhanced Background Gradient -->
+              <!-- Clean Background Gradient -->
               <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0f172a" stop-opacity="1" />
-                <stop offset="50%" stop-color="#1e3a8a" stop-opacity="0.95" />
-                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.85" />
+                <stop offset="0%" stop-color="#0f172a" />
+                <stop offset="30%" stop-color="#1e293b" />
+                <stop offset="70%" stop-color="#334155" />
+                <stop offset="100%" stop-color="#475569" />
               </linearGradient>
 
-              <!-- Accent Gradient for Elements -->
+              <!-- Accent Gradient -->
               <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stop-color="#3b82f6" />
                 <stop offset="50%" stop-color="#6366f1" />
                 <stop offset="100%" stop-color="#8b5cf6" />
               </linearGradient>
 
-              <!-- Animated Wave Pattern -->
-              <pattern id="wavePattern" patternUnits="userSpaceOnUse" width="200" height="200" patternTransform="scale(0.5) rotate(0)">
-                <path d="M-50,125 C50,75 150,175 250,125 C350,75 450,175 550,125" stroke="#3b82f6" stroke-width="2" fill="none" stroke-opacity="0.2">
-                  <animate attributeName="d" values="
-                    M-50,125 C50,75 150,175 250,125 C350,75 450,175 550,125;
-                    M-50,150 C50,100 150,200 250,150 C350,100 450,200 550,150;
-                    M-50,125 C50,75 150,175 250,125 C350,75 450,175 550,125" 
-                    dur="20s" repeatCount="indefinite"/>
-                </path>
-                <path d="M-50,100 C50,50 150,150 250,100 C350,50 450,150 550,100" stroke="#6366f1" stroke-width="1.5" fill="none" stroke-opacity="0.15">
-                  <animate attributeName="d" values="
-                    M-50,100 C50,50 150,150 250,100 C350,50 450,150 550,100;
-                    M-50,75 C50,25 150,125 250,75 C350,25 450,125 550,75;
-                    M-50,100 C50,50 150,150 250,100 C350,50 450,150 550,100" 
-                    dur="15s" repeatCount="indefinite"/>
-                </path>
+              <!-- Title Background Gradient -->
+              <linearGradient id="titleBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="rgba(15, 23, 42, 0.95)" />
+                <stop offset="100%" stop-color="rgba(30, 41, 59, 0.90)" />
+              </linearGradient>
+
+              <!-- Subtle Grid Pattern -->
+              <pattern id="gridPattern" width="80" height="80" patternUnits="userSpaceOnUse">
+                <circle cx="40" cy="40" r="1.5" fill="#3b82f6" opacity="0.15"/>
+                <path d="M0 40 H80 M40 0 V80" stroke="#3b82f6" stroke-width="0.5" opacity="0.08"/>
               </pattern>
 
-              <!-- Grid Pattern for Background -->
-              <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
-                <circle cx="20" cy="20" r="0.5" fill="#3b82f6" opacity="0.3"/>
-                <path d="M0 20 H40 M20 0 V40" stroke="#6366f1" stroke-width="0.2" opacity="0.2"/>
-              </pattern>
-
-              <!-- Radial Gradient for Center Highlight -->
-              <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.2" />
-                <stop offset="100%" stop-color="#0f172a" stop-opacity="0" />
-              </radialGradient>
-
-              <!-- Glow Filter for Elements -->
-              <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="4" result="blur" />
+              <!-- Glow Effect -->
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="2" result="blur" />
                 <feComposite in="SourceGraphic" in2="blur" operator="over" />
               </filter>
 
-              <!-- Soft Shadow Filter -->
-              <filter id="softShadow" x="-10%" y="-10%" width="120%" height="130%">
-                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.2"/>
-              </filter>
-
-              <!-- Particle Animation -->
-              <filter id="particleBlur" x="0" y="0" width="100%" height="100%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
-              </filter>
+              <!-- Arrow Marker Definition -->
+              <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="url(#accentGradient)" />
+              </marker>
             </defs>
             
-            <!-- Main Background -->
+            <!-- Background -->
             <rect width="100%" height="100%" fill="url(#bgGradient)"/>
             
-            <!-- Wave Pattern Layer -->
-            <rect width="100%" height="100%" fill="url(#wavePattern)" opacity="1">
-              <animate attributeName="opacity" values="0.7;0.9;0.7" dur="10s" repeatCount="indefinite" />
-            </rect>
+            <!-- Grid Pattern -->
+            <rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.8"/>
             
-            <!-- Grid Pattern Layer -->
-            <rect width="100%" height="100%" fill="url(#gridPattern)" opacity="0.5"/>
-            
-            <!-- Central Glow -->
-            <rect width="100%" height="100%" fill="url(#centerGlow)" opacity="0.8">
-              <animate attributeName="opacity" values="0.6;0.8;0.6" dur="8s" repeatCount="indefinite" />
-            </rect>
-
-            <!-- Floating Particles -->
-            <g class="particles">
-              <!-- Group 1 -->
-              <circle cx="200" cy="100" r="2" fill="#3b82f6" opacity="0.6" filter="url(#particleBlur)">
-                <animate attributeName="cy" values="100;80;100" dur="6s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.6;0.9;0.6" dur="6s" repeatCount="indefinite" />
-              </circle>
-              <circle cx="300" cy="150" r="1.5" fill="#6366f1" opacity="0.5" filter="url(#particleBlur)">
-                <animate attributeName="cy" values="150;130;150" dur="7s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.5;0.8;0.5" dur="7s" repeatCount="indefinite" />
-              </circle>
-              <circle cx="900" cy="120" r="2" fill="#8b5cf6" opacity="0.6" filter="url(#particleBlur)">
-                <animate attributeName="cy" values="120;100;120" dur="8s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.6;0.9;0.6" dur="8s" repeatCount="indefinite" />
-              </circle>
-              <circle cx="1000" cy="200" r="1.5" fill="#3b82f6" opacity="0.5" filter="url(#particleBlur)">
-                <animate attributeName="cy" values="200;180;200" dur="9s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.5;0.8;0.5" dur="9s" repeatCount="indefinite" />
-              </circle>
-            </g>
-
-            <!-- Cloud Technology Illustration -->
-            <g transform="translate(600, 120)" filter="url(#softShadow)">
-              <!-- Central Cloud Hub -->
-              <path d="M0,0 C-30,-20 -60,20 -30,40 C-60,60 -30,100 0,80 C30,100 60,60 30,40 C60,20 30,-20 0,0 Z" 
-                    fill="rgba(59, 130, 246, 0.2)" stroke="url(#accentGradient)" stroke-width="2" filter="url(#glow)">
-                <animate attributeName="d" values="
-                  M0,0 C-30,-20 -60,20 -30,40 C-60,60 -30,100 0,80 C30,100 60,60 30,40 C60,20 30,-20 0,0 Z;
-                  M0,-5 C-35,-25 -65,15 -35,35 C-65,55 -35,95 0,75 C35,95 65,55 35,35 C65,15 35,-25 0,-5 Z;
-                  M0,0 C-30,-20 -60,20 -30,40 C-60,60 -30,100 0,80 C30,100 60,60 30,40 C60,20 30,-20 0,0 Z" 
-                  dur="15s" repeatCount="indefinite"/>
-              </path>
-              
-              <!-- Central Icon -->
-              <circle cx="0" cy="40" r="25" fill="rgba(99, 102, 241, 0.2)" stroke="url(#accentGradient)" stroke-width="2" />
-              <g transform="translate(-15, 30)">
-                <path d="M0,0 L30,0 M0,10 L30,10 M0,20 L30,20" stroke="#f1f5f9" stroke-width="3" stroke-linecap="round" />
-              </g>
-
-              <!-- Connection Lines with Pulse Animation -->
-              <g class="connection-lines">
-                <!-- To DevOps -->
-                <path d="M-20,20 L-120,-60" stroke="url(#accentGradient)" stroke-width="2" stroke-dasharray="5,3">
-                  <animate attributeName="stroke-dashoffset" values="0;16" dur="3s" repeatCount="indefinite" />
-                </path>
-                <!-- To Cloud -->
-                <path d="M30,30 L130,-40" stroke="url(#accentGradient)" stroke-width="2" stroke-dasharray="5,3">
-                  <animate attributeName="stroke-dashoffset" values="0;16" dur="3s" repeatCount="indefinite" />
-                </path>
-                <!-- To Automation -->
-                <path d="M-30,60 L-130,100" stroke="url(#accentGradient)" stroke-width="2" stroke-dasharray="5,3">
-                  <animate attributeName="stroke-dashoffset" values="0;16" dur="3s" repeatCount="indefinite" />
-                </path>
-                <!-- To Infrastructure -->
-                <path d="M20,70 L120,120" stroke="url(#accentGradient)" stroke-width="2" stroke-dasharray="5,3">
-                  <animate attributeName="stroke-dashoffset" values="0;16" dur="3s" repeatCount="indefinite" />
-                </path>
-              </g>
-
-              <!-- Connected Technology Nodes -->
-              <g class="tech-nodes">
-                <!-- DevOps Node -->
-                <circle cx="-130" cy="-70" r="20" fill="rgba(59, 130, 246, 0.2)" stroke="url(#accentGradient)" stroke-width="2" filter="url(#glow)" />
-                <text x="-130" y="-67" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#f1f5f9">DEVOPS</text>
+            <!-- DevOps Pipeline Visualization -->
+            <g transform="translate(100, 120)">
+              <!-- Pipeline Flow -->
+              <g class="pipeline-flow">
+                <!-- Development Stage -->
+                <g transform="translate(0, 0)">
+                  <rect x="-35" y="-12" width="70" height="24" rx="12" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="1.5"/>
+                  <text x="0" y="3" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#e2e8f0">DEV</text>
+                </g>
                 
-                <!-- Cloud Node -->
-                <circle cx="140" cy="-50" r="20" fill="rgba(59, 130, 246, 0.2)" stroke="url(#accentGradient)" stroke-width="2" filter="url(#glow)" />
-                <text x="140" y="-47" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#f1f5f9">CLOUD</text>
+                <!-- Arrow 1 -->
+                <path d="M40 0 L115 0" stroke="url(#accentGradient)" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrowhead)">
+                  <animate attributeName="stroke-dashoffset" values="0;6" dur="2s" repeatCount="indefinite" />
+                </path>
                 
-                <!-- Automation Node -->
-                <circle cx="-140" cy="110" r="20" fill="rgba(59, 130, 246, 0.2)" stroke="url(#accentGradient)" stroke-width="2" filter="url(#glow)" />
-                <text x="-140" y="113" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" font-weight="700" fill="#f1f5f9">AUTOMATE</text>
+                <!-- Build Stage -->
+                <g transform="translate(160, 0)">
+                  <rect x="-35" y="-12" width="70" height="24" rx="12" fill="rgba(99, 102, 241, 0.2)" stroke="#6366f1" stroke-width="1.5"/>
+                  <text x="0" y="3" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#e2e8f0">BUILD</text>
+                </g>
                 
-                <!-- Infrastructure Node -->
-                <circle cx="130" cy="130" r="20" fill="rgba(59, 130, 246, 0.2)" stroke="url(#accentGradient)" stroke-width="2" filter="url(#glow)" />
-                <text x="130" y="133" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" font-weight="700" fill="#f1f5f9">INFRA</text>
+                <!-- Arrow 2 -->
+                <path d="M200 0 L275 0" stroke="url(#accentGradient)" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrowhead)">
+                  <animate attributeName="stroke-dashoffset" values="0;6" dur="2s" repeatCount="indefinite" begin="0.4s"/>
+                </path>
+                
+                <!-- Test Stage -->
+                <g transform="translate(320, 0)">
+                  <rect x="-35" y="-12" width="70" height="24" rx="12" fill="rgba(139, 92, 246, 0.2)" stroke="#8b5cf6" stroke-width="1.5"/>
+                  <text x="0" y="3" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#e2e8f0">TEST</text>
+                </g>
+                
+                <!-- Arrow 3 -->
+                <path d="M360 0 L435 0" stroke="url(#accentGradient)" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrowhead)">
+                  <animate attributeName="stroke-dashoffset" values="0;6" dur="2s" repeatCount="indefinite" begin="0.8s"/>
+                </path>
+                
+                <!-- Deploy Stage -->
+                <g transform="translate(480, 0)">
+                  <rect x="-35" y="-12" width="70" height="24" rx="12" fill="rgba(34, 197, 94, 0.2)" stroke="#22c55e" stroke-width="1.5"/>
+                  <text x="0" y="3" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#e2e8f0">DEPLOY</text>
+                </g>
+                
+                <!-- Arrow 4 -->
+                <path d="M520 0 L595 0" stroke="url(#accentGradient)" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrowhead)">
+                  <animate attributeName="stroke-dashoffset" values="0;6" dur="2s" repeatCount="indefinite" begin="1.2s"/>
+                </path>
+                
+                <!-- Monitor Stage -->
+                <g transform="translate(650, 0)">
+                  <rect x="-45" y="-12" width="90" height="24" rx="12" fill="rgba(245, 158, 11, 0.2)" stroke="#f59e0b" stroke-width="1.5"/>
+                  <text x="0" y="3" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" font-weight="600" fill="#e2e8f0">MONITOR</text>
+                </g>
               </g>
             </g>
-
-            <!-- Title Area -->
-            <g transform="translate(600, 290)">
-              <!-- Title Background with Enhanced Styling -->
-              <rect x="-450" y="-30" width="900" height="70" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="url(#accentGradient)" stroke-width="2" filter="url(#glow)"/>
+            
+            <!-- Technology Stack Icons -->
+            <g transform="translate(150, 60)">
+              <!-- Azure Cloud -->
+              <g transform="translate(120, 0)">
+                <circle cx="0" cy="0" r="20" fill="rgba(59, 130, 246, 0.15)" stroke="#3b82f6" stroke-width="1.5" filter="url(#glow)"/>
+                <path d="M-8 -3 C-8 -7 -4 -10 0 -10 C4 -10 8 -7 8 -3 C12 -3 12 4 8 4 L-8 4 C-12 4 -12 -3 -8 -3 Z" 
+                      fill="#3b82f6" opacity="0.9"/>
+                <text x="0" y="28" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" font-weight="500" fill="#94a3b8">AZURE</text>
+              </g>
               
-              <!-- Title Text -->
-              <text x="0" y="0" text-anchor="middle" font-family="ui-monospace, monospace" font-size="32" font-weight="800" fill="#f1f5f9">DevOps Engineering Blog</text>
-              <text x="0" y="25" text-anchor="middle" font-family="ui-monospace, monospace" font-size="14" font-weight="500" fill="#c7d2fe">Azure • Python • Infrastructure as Code • Automation</text>
+              <!-- Python -->
+              <g transform="translate(280, 0)">
+                <circle cx="0" cy="0" r="20" fill="rgba(99, 102, 241, 0.15)" stroke="#6366f1" stroke-width="1.5" filter="url(#glow)"/>
+                <path d="M-6 -6 C-6 -9 -3 -9 0 -9 C3 -9 6 -9 6 -6 L6 0 L0 0 L0 6 C0 9 -3 9 -6 9 C-9 9 -9 6 -6 6 Z" 
+                      fill="#6366f1" opacity="0.9"/>
+                <circle cx="-3" cy="-4" r="1" fill="#f1f5f9"/>
+                <text x="0" y="28" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" font-weight="500" fill="#94a3b8">PYTHON</text>
+              </g>
+              
+              <!-- Infrastructure -->
+              <g transform="translate(440, 0)">
+                <circle cx="0" cy="0" r="20" fill="rgba(139, 92, 246, 0.15)" stroke="#8b5cf6" stroke-width="1.5" filter="url(#glow)"/>
+                <rect x="-8" y="-6" width="16" height="3" rx="1.5" fill="#8b5cf6" opacity="0.9"/>
+                <rect x="-6" y="-1" width="12" height="3" rx="1.5" fill="#8b5cf6" opacity="0.7"/>
+                <rect x="-4" y="4" width="8" height="3" rx="1.5" fill="#8b5cf6" opacity="0.5"/>
+                <text x="0" y="28" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" font-weight="500" fill="#94a3b8">IaC</text>
+              </g>
+              
+              <!-- Automation -->
+              <g transform="translate(600, 0)">
+                <circle cx="0" cy="0" r="20" fill="rgba(34, 197, 94, 0.15)" stroke="#22c55e" stroke-width="1.5" filter="url(#glow)"/>
+                <path d="M-6 0 L-3 -3 L0 0 L3 -3 L6 0 L3 3 L0 0 L-3 3 Z" fill="#22c55e" opacity="0.9"/>
+                <text x="0" y="28" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" font-weight="500" fill="#94a3b8">AUTO</text>
+              </g>
+            </g>
+            
+            <!-- Well-Spaced Title Area -->
+            <g transform="translate(600, 260)">
+              <!-- Title Container with proper padding -->
+              <rect x="-350" y="-35" width="700" height="70" rx="12" 
+                    fill="url(#titleBg)" 
+                    stroke="url(#accentGradient)" 
+                    stroke-width="1.5" 
+                    filter="url(#glow)"/>
+              
+              <!-- Main Title with proper spacing -->
+              <text x="0" y="-10" text-anchor="middle" 
+                    font-family="ui-monospace, monospace" 
+                    font-size="24" 
+                    font-weight="700" 
+                    fill="#f8fafc">DevOps Engineering Blog</text>
+              
+              <!-- Subtitle with adequate spacing -->
+              <text x="0" y="15" text-anchor="middle" 
+                    font-family="ui-monospace, monospace" 
+                    font-size="11" 
+                    font-weight="400" 
+                    fill="#94a3b8">Azure • Python • Infrastructure as Code • Automation</text>
+            </g>
+            
+            <!-- Decorative Corner Elements -->
+            <g opacity="0.3">
+              <!-- Top Left -->
+              <circle cx="50" cy="50" r="3" fill="#3b82f6" opacity="0.4">
+                <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite" />
+              </circle>
+              <!-- Top Right -->
+              <circle cx="1150" cy="50" r="3" fill="#6366f1" opacity="0.4">
+                <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite" begin="1s"/>
+              </circle>
+              <!-- Bottom Left -->
+              <circle cx="50" cy="270" r="3" fill="#8b5cf6" opacity="0.4">
+                <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite" begin="2s"/>
+              </circle>
+              <!-- Bottom Right -->
+              <circle cx="1150" cy="270" r="3" fill="#22c55e" opacity="0.4">
+                <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite" begin="3s"/>
+              </circle>
             </g>
           </svg>
         </div>
       </div>
       
-      <h1>Hej! 👋</h1>
-      <a
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg class="rss-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M5 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-          <path d="M4 4a16 16 0 0 1 16 16" />
-          <path d="M4 11a9 9 0 0 1 9 9" />
-        </svg>
-      </a>
-
-      <p>This is Arnab Dey! 👨‍💻</p>
-
-      <p>
-        I'm a DevOps/Cloud Engineer with 14+ years in IT, specializing in Azure, Python automation, and infrastructure as code. 
-        This blog is where I share my experiences, projects, and insights about cloud infrastructure, DevOps practices, and automation techniques.
-      </p>
-      <p class="mt-2">
-        Currently working on open-source DevOps tools and Azure automation projects. For more about my work and projects, visit my <a href="https://arnabdey.dev" class="text-accent hover:underline" target="_blank" rel="noopener noreferrer">portfolio</a>. Check out my latest articles below!
-      </p>
-      
-      <div class="social-wrapper">
-        <div class="social-links">Find me on:</div>
-        <Socials />
-      </div>
-
-      <div class="flex flex-col sm:flex-row sm:gap-4">
-        <LinkButton
-          href="https://github.com/arnabdey73"
-          class="link-button"
-          title="View my GitHub projects"
+      <div class="hero-content">
+        <h1>Hej! 👋</h1>
+        <a
+          href="/rss.xml"
+          class="rss-link"
+          aria-label="rss feed"
+          title="RSS Feed"
         >
-          View my projects
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="rss-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M5 12l14 0" />
-            <path d="M13 18l6 -6" />
-            <path d="M13 6l6 6" />
+            <path d="M5 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M4 4a16 16 0 0 1 16 16" />
+            <path d="M4 11a9 9 0 0 1 9 9" />
           </svg>
-        </LinkButton>
-        <LinkButton
-          href="https://arnabdey.dev"
-          class="link-button"
-          title="Visit my portfolio website"
-        >
-          Visit my portfolio
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M5 12l14 0" />
-            <path d="M13 18l6 -6" />
-            <path d="M13 6l6 6" />
-          </svg>
-        </LinkButton>
+        </a>
+
+        <p>This is Arnab Dey! 👨‍💻</p>
+
+        <p>
+          I'm a DevOps/Cloud Engineer with 14+ years in IT, specializing in Azure, Python automation, and infrastructure as code. 
+          This blog is where I share my experiences, projects, and insights about cloud infrastructure, DevOps practices, and automation techniques.
+        </p>
+        <p class="mt-2">
+          Currently working on open-source DevOps tools and Azure automation projects. For more about my work and projects, visit my <a href="https://arnabdey.dev" class="text-accent hover:underline" target="_blank" rel="noopener noreferrer">portfolio</a>. Check out my latest articles below!
+        </p>
+        
+        <div class="social-wrapper">
+          <div class="social-links">Find me on:</div>
+          <Socials />
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:gap-4">
+          <LinkButton
+            href="https://github.com/arnabdey73"
+            class="link-button"
+            title="View my GitHub projects"
+          >
+            View my projects
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M5 12l14 0" />
+              <path d="M13 18l6 -6" />
+              <path d="M13 6l6 6" />
+            </svg>
+          </LinkButton>
+          <LinkButton
+            href="https://arnabdey.dev"
+            class="link-button"
+            title="Visit my portfolio website"
+          >
+            Visit my portfolio
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M5 12l14 0" />
+              <path d="M13 18l6 -6" />
+              <path d="M13 6l6 6" />
+            </svg>
+          </LinkButton>
+        </div>
       </div>
     </section>
 
@@ -374,11 +391,25 @@ const recentPosts = sortedPosts.filter(post =>
   /* ===== Full-width Layout Override ===== */
   #main-content[data-layout="index"] {
     max-width: none !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     width: 100% !important;
+  }
+
+  @media (max-width: 640px) {
+    #main-content[data-layout="index"] {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    #main-content[data-layout="index"] {
+      padding-left: 3rem !important;
+      padding-right: 3rem !important;
+    }
   }
   
   /* ===== Hero Section ===== */
@@ -388,6 +419,16 @@ const recentPosts = sortedPosts.filter(post =>
     margin: 0 auto;
     position: relative;
     overflow-x: hidden;
+  }
+  
+  #hero .hero-content {
+    @apply mt-12;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 10;
+    padding-top: 2rem;
   }
   
   #hero h1 {
@@ -408,23 +449,20 @@ const recentPosts = sortedPosts.filter(post =>
   
   /* ===== Hero Banner Full Width ===== */
   .hero-image {
-    @apply mb-8 w-full;
-    width: 100vw;
+    @apply mb-12 w-full;
+    width: 100%;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
     overflow-x: hidden;
+    margin-bottom: 3rem;
   }
   
   .hero-banner {
     @apply transition-all duration-500 w-full;
-    max-width: 1400px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid var(--color-border);
-    border-radius: 0;
+    border-radius: 0.75rem;
     min-height: 300px;
     box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.15), 0 4px 10px -2px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -446,24 +484,7 @@ const recentPosts = sortedPosts.filter(post =>
     min-height: 300px;
     display: block;
     max-width: 1400px;
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
-  
-  /* Floating animation for hero elements */
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-  
-  .particles circle {
-    animation: float 6s ease-in-out infinite;
+    transition: all 0.3s ease-in-out;
   }
   
   /* Responsive hero adjustments */
@@ -471,9 +492,6 @@ const recentPosts = sortedPosts.filter(post =>
     .hero-banner {
       border-radius: 1rem;
       min-height: 340px;
-      width: calc(100% - 40px);
-      margin-left: auto;
-      margin-right: auto;
     }
     .hero-svg {
       min-height: 340px;
@@ -482,12 +500,11 @@ const recentPosts = sortedPosts.filter(post =>
   
   @media (min-width: 1024px) {
     .hero-banner {
-      min-height: 380px;
-      width: calc(100% - 80px);
+      min-height: 360px;
       border-radius: 1.5rem;
     }
     .hero-svg {
-      min-height: 380px;
+      min-height: 360px;
     }
   }
   

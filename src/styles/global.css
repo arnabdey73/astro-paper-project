@@ -61,6 +61,13 @@
       padding-right: 1rem;
     }
   }
+
+  @media (min-width: 1200px) {
+    #main-content {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
   
   /* Force container to be full width */
   .astro-container {
