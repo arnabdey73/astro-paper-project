@@ -50,6 +50,198 @@ const skills = ["DevOps", "Cloud Infrastructure", "AWS", "Azure", "Docker", "Kub
   <Breadcrumb />
   <main id="main-content">
     <div class="about-hero">
+      <svg width="100%" height="100%" viewBox="0 0 1200 220" xmlns="http://www.w3.org/2000/svg" class="about-hero-svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <!-- About page gradient -->
+          <linearGradient id="aboutBgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1e293b" />
+            <stop offset="50%" stop-color="#334155" />
+            <stop offset="100%" stop-color="#475569" />
+          </linearGradient>
+
+          <!-- Profile accent gradient -->
+          <linearGradient id="profileGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#f59e0b" />
+            <stop offset="50%" stop-color="#d97706" />
+            <stop offset="100%" stop-color="#b45309" />
+          </linearGradient>
+
+          <!-- Tech pattern -->
+          <pattern id="techPattern" width="80" height="80" patternUnits="userSpaceOnUse">
+            <circle cx="40" cy="40" r="1.5" fill="#f59e0b" opacity="0.3"/>
+            <circle cx="20" cy="20" r="1" fill="#d97706" opacity="0.2"/>
+            <circle cx="60" cy="60" r="1" fill="#b45309" opacity="0.2"/>
+            <path d="M0 40 H80 M40 0 V80" stroke="#f59e0b" stroke-width="0.5" opacity="0.1"/>
+          </pattern>
+
+          <!-- Glow effect for text -->
+          <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+
+          <!-- Profile shadow -->
+          <filter id="profileShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.2"/>
+          </filter>
+        </defs>
+        
+        <!-- Background -->
+        <rect width="100%" height="100%" fill="url(#aboutBgGradient)"/>
+        
+        <!-- Tech pattern overlay -->
+        <rect width="100%" height="100%" fill="url(#techPattern)" opacity="0.4"/>
+        
+        <!-- Profile section -->
+        <g transform="translate(600, 110)">
+          <!-- Profile container -->
+          <rect x="-350" y="-50" width="700" height="100" rx="12" 
+                fill="rgba(30, 41, 59, 0.8)" 
+                stroke="url(#profileGradient)" 
+                stroke-width="1.5" 
+                filter="url(#profileShadow)"/>
+          
+          <!-- Avatar placeholder circle -->
+          <g transform="translate(-250, 0)">
+            <circle cx="0" cy="0" r="35" 
+                    fill="rgba(245, 158, 11, 0.2)" 
+                    stroke="url(#profileGradient)" 
+                    stroke-width="2"/>
+            <!-- Simple avatar icon -->
+            <circle cx="0" cy="-8" r="12" fill="#f59e0b" opacity="0.8"/>
+            <path d="M-18 15 C-18 5 -12 0 0 0 C12 0 18 5 18 15" fill="#f59e0b" opacity="0.8"/>
+          </g>
+          
+          <!-- About title -->
+          <text x="-80" y="-15" 
+                font-family="ui-monospace, monospace" 
+                font-size="28" 
+                font-weight="800" 
+                fill="#f8fafc"
+                filter="url(#textGlow)">About Me</text>
+          
+          <!-- Subtitle -->
+          <text x="-80" y="15" 
+                font-family="ui-monospace, monospace" 
+                font-size="13" 
+                font-weight="500" 
+                fill="#cbd5e1">DevOps Engineer • Cloud Architect • Tech Enthusiast</text>
+          
+          <!-- Decorative elements -->
+          <g class="about-decorative">
+            <!-- Left side - code brackets -->
+            <g transform="translate(-320, 0)">
+              <path d="M-8 -15 L-15 -8 L-15 8 L-8 15" 
+                    stroke="#f59e0b" 
+                    stroke-width="2" 
+                    fill="none" 
+                    opacity="0.7"/>
+              <path d="M8 -15 L15 -8 L15 8 L8 15" 
+                    stroke="#f59e0b" 
+                    stroke-width="2" 
+                    fill="none" 
+                    opacity="0.7"/>
+            </g>
+            
+            <!-- Right side - tech icons -->
+            <g transform="translate(280, 0)">
+              <!-- Gear icon -->
+              <circle cx="0" cy="-12" r="8" fill="none" stroke="#d97706" stroke-width="1.5" opacity="0.8"/>
+              <circle cx="0" cy="-12" r="4" fill="#d97706" opacity="0.6"/>
+              
+              <!-- Lightning icon -->
+              <path d="M-2 8 L6 0 L2 0 L4 -8 L-4 0 L0 0 Z" fill="#b45309" opacity="0.8"/>
+            </g>
+          </g>
+        </g>
+        
+        <!-- Experience badges -->
+        <g class="experience-badges" opacity="0.7">
+          <!-- Years of experience -->
+          <g transform="translate(150, 50)">
+            <rect x="-40" y="-8" width="80" height="16" rx="8" 
+                  fill="rgba(245, 158, 11, 0.15)" 
+                  stroke="#f59e0b" 
+                  stroke-width="1"/>
+            <text x="0" y="2" text-anchor="middle" 
+                  font-family="ui-monospace, monospace" 
+                  font-size="9" 
+                  font-weight="600" 
+                  fill="#f59e0b">14+ YEARS</text>
+          </g>
+          
+          <!-- Project count -->
+          <g transform="translate(1050, 50)">
+            <rect x="-35" y="-8" width="70" height="16" rx="8" 
+                  fill="rgba(217, 119, 6, 0.15)" 
+                  stroke="#d97706" 
+                  stroke-width="1"/>
+            <text x="0" y="2" text-anchor="middle" 
+                  font-family="ui-monospace, monospace" 
+                  font-size="9" 
+                  font-weight="600" 
+                  fill="#d97706">100+ PROJECTS</text>
+          </g>
+          
+          <!-- Tech stack -->
+          <g transform="translate(150, 170)">
+            <rect x="-50" y="-8" width="100" height="16" rx="8" 
+                  fill="rgba(180, 83, 9, 0.15)" 
+                  stroke="#b45309" 
+                  stroke-width="1"/>
+            <text x="0" y="2" text-anchor="middle" 
+                  font-family="ui-monospace, monospace" 
+                  font-size="9" 
+                  font-weight="600" 
+                  fill="#b45309">FULL STACK</text>
+          </g>
+          
+          <!-- Cloud expertise -->
+          <g transform="translate(1050, 170)">
+            <rect x="-45" y="-8" width="90" height="16" rx="8" 
+                  fill="rgba(34, 197, 94, 0.15)" 
+                  stroke="#22c55e" 
+                  stroke-width="1"/>
+            <text x="0" y="2" text-anchor="middle" 
+                  font-family="ui-monospace, monospace" 
+                  font-size="9" 
+                  font-weight="600" 
+                  fill="#22c55e">CLOUD EXPERT</text>
+          </g>
+        </g>
+        
+        <!-- Connecting lines with animation -->
+        <g class="profile-connections" opacity="0.4">
+          <path d="M250 110 L190 58" stroke="url(#profileGradient)" stroke-width="1" stroke-dasharray="3,2">
+            <animate attributeName="stroke-dashoffset" values="0;5" dur="4s" repeatCount="indefinite" />
+          </path>
+          <path d="M950 110 L1010 58" stroke="url(#profileGradient)" stroke-width="1" stroke-dasharray="3,2">
+            <animate attributeName="stroke-dashoffset" values="0;5" dur="4s" repeatCount="indefinite" begin="1s"/>
+          </path>
+          <path d="M250 110 L190 162" stroke="url(#profileGradient)" stroke-width="1" stroke-dasharray="3,2">
+            <animate attributeName="stroke-dashoffset" values="0;5" dur="4s" repeatCount="indefinite" begin="2s"/>
+          </path>
+          <path d="M950 110 L1010 162" stroke="url(#profileGradient)" stroke-width="1" stroke-dasharray="3,2">
+            <animate attributeName="stroke-dashoffset" values="0;5" dur="4s" repeatCount="indefinite" begin="3s"/>
+          </path>
+        </g>
+        
+        <!-- Floating particles -->
+        <g class="profile-particles" opacity="0.3">
+          <circle cx="100" cy="30" r="1.5" fill="#f59e0b">
+            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5s" repeatCount="indefinite" />
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-4; 0,0" dur="6s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="1100" cy="190" r="1.5" fill="#d97706">
+            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5s" repeatCount="indefinite" begin="1.5s"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-4; 0,0" dur="6s" repeatCount="indefinite" begin="1.5s"/>
+          </circle>
+          <circle cx="300" cy="20" r="1" fill="#b45309">
+            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite" begin="2.5s"/>
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="5s" repeatCount="indefinite" begin="2.5s"/>
+          </circle>
+        </g>
+      </svg>
       <div class="about-gradient"></div>
     </div>
     <section id="about" class="prose-full mb-28 w-full prose-img:border-0">
