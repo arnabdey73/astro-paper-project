@@ -1,0 +1,233 @@
+---
+const careerSteps = [
+  {
+    year: "2025 – Present",
+    role: "DevOps Engineer",
+    company: "AFRY, Sweden",
+    focus: "Enterprise-grade infrastructure automation & hybrid cloud DevOps delivery."
+  },
+  {
+    year: "2024 – 2025",
+    role: "Cloud Engineer (Contract)",
+    company: "Stena Metall Group, Sweden",
+    focus: "Azure governance, Terraform CAF upgrades, and secure IaC pipelines."
+  },
+  {
+    year: "2021 – 2024",
+    role: "Senior Software Engineer (DevOps)",
+    company: "Capgemini, Sweden",
+    focus: "CI/CD pipelines, GitOps workflows, MLOps enablement and platform infrastructure."
+  },
+  {
+    year: "2017 – 2021",
+    role: "Senior DevOps Consultant",
+    company: "Tech Mahindra, India",
+    focus: "Multi-cloud DevOps transformation with Jenkins, Kubernetes, and Terraform."
+  },
+  {
+    year: "2011 – 2017",
+    role: "Cloud & Systems Engineer",
+    company: "Hewlett-Packard, ICF Olson, Trianz",
+    focus: "Unix/Linux systems admin, cloud migration, automation scripting, VMware infrastructure."
+  },
+  {
+    year: "2009 – 2010",
+    role: "Jr. System Administrator",
+    company: "Poornam Info Vision, India",
+    focus: "Linux VPS servers and core services (DNS, SMTP, DHCP) for global hosting clients."
+  },
+];
+---
+
+<section class="career-timeline-section">
+  <h3 class="career-timeline-title">🚀 My Career Timeline</h3>
+  <div class="career-timeline-container">
+    <div class="career-timeline-scroll">
+      {careerSteps.map((step, index) => (
+        <div class={`career-step career-step-${index}`}>
+          <div class="career-year">{step.year}</div>
+          <h4 class="career-role">{step.role}</h4>
+          <div class="career-company">{step.company}</div>
+          <p class="career-focus">{step.focus}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .career-timeline-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .career-timeline-title {
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .career-timeline-container {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    /* Custom scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) var(--color-card-muted);
+  }
+
+  .career-timeline-container::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .career-timeline-container::-webkit-scrollbar-track {
+    background: var(--color-card-muted);
+    border-radius: 4px;
+  }
+
+  .career-timeline-container::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 4px;
+  }
+
+  .career-timeline-container::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+    opacity: 0.8;
+  }
+
+  .career-timeline-scroll {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    padding: 0.5rem;
+  }
+
+  .career-step {
+    min-width: 280px;
+    max-width: 320px;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .career-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .career-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-accent);
+  }
+
+  .career-step:hover::before {
+    opacity: 1;
+  }
+
+  .career-year {
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.025em;
+  }
+
+  .career-role {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-base);
+    margin: 0.5rem 0;
+    line-height: 1.3;
+  }
+
+  .career-company {
+    font-style: italic;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .career-focus {
+    font-size: 0.875rem;
+    color: var(--color-text-base);
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  /* Animation delays for staggered effect */
+  .career-step-0 { animation-delay: 0.1s; }
+  .career-step-1 { animation-delay: 0.2s; }
+  .career-step-2 { animation-delay: 0.3s; }
+  .career-step-3 { animation-delay: 0.4s; }
+  .career-step-4 { animation-delay: 0.5s; }
+  .career-step-5 { animation-delay: 0.6s; }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .career-step {
+      min-width: 250px;
+      max-width: 280px;
+      padding: 1.25rem;
+    }
+
+    .career-timeline-title {
+      font-size: 1.25rem;
+    }
+
+    .career-role {
+      font-size: 1.1rem;
+    }
+
+    .career-timeline-scroll {
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .career-timeline-section {
+      padding: 1.5rem 0;
+    }
+
+    .career-step {
+      min-width: 220px;
+      max-width: 250px;
+      padding: 1rem;
+    }
+
+    .career-role {
+      font-size: 1rem;
+    }
+
+    .career-focus {
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Add smooth scroll behavior */
+  .career-timeline-container {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus styles for accessibility */
+  .career-step:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+</style>

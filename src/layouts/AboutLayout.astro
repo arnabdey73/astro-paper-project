@@ -5,7 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import Layout from "./Layout.astro";
 import { SITE } from "@/config";
 import "../styles/about.css";
-import Timeline from "@/components/Timeline.astro";
+import CareerTimeline from "@/components/CareerTimeline.astro";
 import SkillTags from "@/components/SkillTags.astro";
 
 export interface Props {
@@ -16,30 +16,6 @@ export interface Props {
 }
 
 const { frontmatter } = Astro.props;
-
-// Sample professional journey timeline data
-const journeyItems = [
-  { 
-    year: "2024", 
-    title: "Senior Cloud Architect", 
-    description: "Leading cloud infrastructure design and implementation for enterprise solutions."
-  },
-  { 
-    year: "2022", 
-    title: "DevOps Engineer", 
-    description: "Implementing CI/CD pipelines and container orchestration systems."
-  },
-  { 
-    year: "2020", 
-    title: "Full Stack Developer", 
-    description: "Building modern web applications with JavaScript frameworks."
-  },
-  { 
-    year: "2018", 
-    title: "Started Coding Journey", 
-    description: "First steps into software development and web technologies."
-  }
-];
 
 // Technical skills
 const skills = ["DevOps", "Cloud Infrastructure", "AWS", "Azure", "Docker", "Kubernetes", "CI/CD", "JavaScript", "TypeScript", "React", "Node.js"];
@@ -256,11 +232,8 @@ const skills = ["DevOps", "Cloud Infrastructure", "AWS", "Azure", "Docker", "Kub
             <SkillTags skills={skills} />
           </div>
           
-          <!-- Journey section -->
-          <div class="journey-section">
-            <h3>Professional Journey</h3>
-            <Timeline items={journeyItems} />
-          </div>
+          <!-- Career Timeline section -->
+          <CareerTimeline />
           
           <!-- Contact Card -->
           <div class="contact-card">
@@ -286,13 +259,13 @@ const skills = ["DevOps", "Cloud Infrastructure", "AWS", "Azure", "Docker", "Kub
 </Layout>
 
 <style>
-  .skills-section, .journey-section {
+  .skills-section {
     margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid var(--color-border);
   }
   
-  .skills-section h3, .journey-section h3 {
+  .skills-section h3 {
     color: var(--color-accent);
     margin-bottom: 1.5rem;
   }
