@@ -36,8 +36,9 @@ const { page } = Astro.props;
 
 <style>
   .posts-content-container {
-    max-height: calc(100vh - 200px); /* Adjust based on header and hero height */
+    max-height: calc(100vh - 280px); /* Adjusted to account for header, hero, and footer */
     overflow-y: auto;
+    padding-bottom: 20px;
   }
   
   .posts-list {

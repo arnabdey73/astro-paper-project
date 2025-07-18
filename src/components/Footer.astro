@@ -14,10 +14,10 @@ const { noMarginTop = false } = Astro.props;
 const safeRssUrl = "/rss.xml";
 ---
 
-<footer class:list={["w-full sticky bottom-0 bg-skin-fill", { "mt-auto": !noMarginTop }]}>
+<footer class:list={["w-full sticky bottom-0 bg-skin-fill z-10 shadow-lg", { "mt-auto": !noMarginTop }]}>
   <Hr noPadding />
   <div
-    class="flex flex-col items-center justify-between py-6 px-4 sm:flex-row-reverse sm:py-4"
+    class="flex flex-col items-center justify-between py-4 px-6 sm:flex-row-reverse sm:py-3"
   >
     <div class="flex flex-wrap justify-center gap-x-2 gap-y-2">
       <Socials centered />

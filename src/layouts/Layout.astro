@@ -150,7 +150,7 @@ const structuredData = {
     <script is:inline src="/toggle-theme.js"></script>
   </head>
   <body class="flex flex-col min-h-screen">
-    <div class="flex-grow">
+    <div class="content-wrapper flex-grow flex flex-col">
       <slot />
     </div>
     <BackToTop />
@@ -183,12 +183,19 @@ const structuredData = {
   body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
   }
   
-  body > div.flex-grow {
+  .content-wrapper {
     display: flex;
     flex-direction: column;
+    flex: 1 0 auto;
+    position: relative;
     min-height: 0;
+  }
+  
+  footer {
+    flex-shrink: 0;
   }
 
   /* Ensure posts and about page text is properly aligned */
