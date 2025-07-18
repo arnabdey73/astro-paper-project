@@ -22,26 +22,17 @@ const { page } = Astro.props;
 <Layout title={`Posts | ${SITE.title}`}>
   <Header />
   <PostsHero />
-  <div class="posts-content-container flex-grow overflow-y-auto">
-    <Main pageTitle="Latest Posts" pageDesc="Browse through all articles">
-      <ul class="posts-list">
-        {page.data.map(data => <Card {...data} />)}
-      </ul>
-    </Main>
-
+  <Main pageTitle="Latest Posts" pageDesc="Browse through all articles">
+    <ul class="posts-list">
+      {page.data.map(data => <Card {...data} />)}
+    </ul>
     <Pagination {page} />
-  </div>
+  </Main>
   <Footer noMarginTop={page.lastPage > 1} />
 </Layout>
 
 <style>
-  .posts-content-container {
-    max-height: calc(100vh - 280px); /* Adjusted to account for header, hero, and footer */
-    overflow-y: auto;
-    padding-bottom: 20px;
-  }
-  
   .posts-list {
-    padding-bottom: 20px;
+    margin-bottom: 2rem;
   }
 </style>
