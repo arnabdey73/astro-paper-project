@@ -1,0 +1,42 @@
+---
+import { SITE } from "@/config";
+
+// Generate dynamic content based on SITE config
+const heroTitle = `Explore ${SITE.title}'s Articles`;
+---
+
+<div class="hero-section w-full mb-8 px-4">
+  <div class="hero-container relative rounded-lg overflow-hidden shadow-lg max-w-4xl mx-auto">
+    <div class="hero-image-container h-64 sm:h-80">
+      <img 
+        src="/assets/images/posts-hero.svg" 
+        alt="Blog posts collection" 
+        class="w-full h-full object-cover dark:opacity-80"
+        onerror="this.onerror=null; this.src='/assets/images/posts-hero.png';"
+      />
+    </div>
+    <div class="hero-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/10 flex flex-col justify-end p-6 sm:p-8">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">{heroTitle}</h1>
+      <p class="text-gray-200 text-lg sm:text-xl max-w-2xl">
+        Discover insights, tutorials, and stories crafted with care
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero-section {
+    /* Add animation for the hero */
+    animation: fade-in 0.8s ease-in;
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Adjust overlay colors for dark mode */
+  :global(.dark) .hero-overlay {
+    background-image: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+  }
+</style>
